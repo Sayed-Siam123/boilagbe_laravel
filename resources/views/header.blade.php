@@ -35,9 +35,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-                <li class="active"><a href="index.php">Home</a></li><!-- profile_sell_book_directory.php will be profile main page-->
+                <li class="active"><a href="/">Home</a></li><!-- profile_sell_book_directory.php will be profile main page-->
                 <li><a href="#">Contact Us</a></li>
-                <li><a href="user_login.php">Log In</a></li>
+                <li><a href="/login">Log In</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div>

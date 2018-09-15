@@ -44,15 +44,16 @@
 
 
             <p>If you are not registerd.Please <a href="/signup"> <b>Sign Up</b></a></p>
-            <form action="user_login.php" method="post">
+            <form action="/loginDB" method="post">
+                {{ csrf_field() }}
                 <div class="form-group">
                     <label for="loginNUmber">Username</label>
-                    <input type="text" class="form-control input-sm" name="username" id="phoneNumber" placeholder="Your Phone Number or Email">
+                    <input type="text" class="form-control input-sm" name="username_login" id="phoneNumber" placeholder="Your Phone Number or Email">
                 </div>
 
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="text" class="form-control input-sm" name="password" id="bookCondition" placeholder="Password">
+                    <input type="text" class="form-control input-sm" name="password_login" id="bookCondition" placeholder="Password">
                 </div>
 
 

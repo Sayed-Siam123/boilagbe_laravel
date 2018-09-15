@@ -43,7 +43,7 @@
         <div class="row col-md-13">
 
 
-            <p>Already registered. Then <a href="/"><b>log In </b></a></p>
+            <p>Already registered. Then <a href="/login"><b>log In </b></a></p>
 
             <form id="myForm" action="user_sign_up.php" onsubmit="validation()" method="post">
 
