@@ -42,7 +42,7 @@
             <br>
             <h5>All Selling Books</h5>
             <!-- add book section-->
-            <a href="user_new_book_add.php" type="button"
+            <a href="/user_new_book_add" type="button"
                style="
                          width: 120px;
                          min-width:2vmin;

@@ -51,7 +51,8 @@
 
 
 
-            <form action="user_new_book_add.php" onclick="" method="post" enctype="multipart/form-data">
+            <form action="/newbookDB" onclick="" method="post" enctype="multipart/form-data">
+                {{csrf_field()}}
                 <div class="form-group">
                     <label for="bookName">Book Name</label>
                     <input type="text" name="bookName"  class="form-control input-sm" id="bookName" placeholder="Your Book Name">
@@ -82,7 +83,7 @@
                 </div>
                 <label for="book_Image">Add at least Three Book Condition Images.</label>
                 <div class="form-group">
-                    <input type="file" name="image_name" />
+                    <input type="file" name="image_name"  />
                 </div>
 
                 <div class="row">

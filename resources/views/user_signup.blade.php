@@ -45,8 +45,8 @@
 
             <p>Already registered. Then <a href="/login"><b>log In </b></a></p>
 
-            <form id="myForm" action="user_sign_up.php" onsubmit="validation()" method="post">
-
+            <form id="myForm" action="/signupDB" onsubmit="validation()" method="post">
+                {{ csrf_field() }}
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text"  class="form-control input-sm" name="user_name" placeholder="ex: Jhon Lenon x" required>

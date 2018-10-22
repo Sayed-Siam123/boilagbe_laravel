@@ -15,15 +15,12 @@
     <div class="container">
         <!-- Start Atribute Navigation -->
         <div class="attr-nav">
-            <ul>
+
+            <a>
                 <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">
-                        <i class="fa fa-user"></i>
 
-                    </a>
-
-                </li>
+                <a href="/user_Profile_Edit"> <img src="ProPicture\{{\Illuminate\Support\Facades\Session::get('avatar')}}" alt="Avatar" class="avatar">
+                </a>
 
                 <!-- <li class="side-menu"><a href="#"><i class="fa fa-bars"></i></a></li> -->
             </ul>
@@ -44,13 +41,22 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-                <li class="active"><a href="user_profile_sell_book_directory.php">Home</a></li><!-- profile_sell_book_directory.php will be profile main page-->
-                <li><a href="user_profile_book_edit_delete.php">Sells Edit</a></li>
-                <li><a href="user_buy_books.php">Buy Books</a></li>
-                <li><a href="user_profile_Edit.php">Profile</a></li>
-                <li><a href="index_requests.php">Requests</a></li>
-                <li><a href="user_logout.php">Log Out</a></li>
-            </ul>
+
+                <li class="active"><a href="/user_profile_sell_directory">Home</a></li><!-- profile_sell_book_directory.php will be profile main page-->
+                <li><a href="\user_profile_book_edit_delete">Sell</a></li>
+                <li><a href="index_requests.php">Request</a></li>
+                <!--<li><a href="user_buy_books.php">Buy Books</a></li>-->
+                <li><a href="user_Profile_Edit">Profile</a></li>
+
+                    <li><a href="/logout">Log out</a></li>
+               </ul>
+
+
+
+
+
+
+
         </div><!-- /.navbar-collapse -->
     </div>
 </nav>
