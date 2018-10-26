@@ -27,7 +27,7 @@
 <body>
 <!-- Start Navigation -->
 
-@include("header")
+@include("header_aftersignin")
 <div class="clearfix"></div>
 
 <!-- Start Content -->

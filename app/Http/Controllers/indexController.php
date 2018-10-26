@@ -25,26 +25,26 @@ class indexController extends Controller
     }
 
     public function sellEditRoute(){
-        echo Session::get('username');
+        //echo Session::get('username');
         return view('user_profile_book_edit_delete');
 
     }
 
     public function sellbookdetailsRoute(){
-        echo Session::get('username');
+        //echo Session::get('username');
         return view('sell_book_details');
 
     }
 
     public function newBookRoute(){
-        echo Session::get('username');
+        //echo Session::get('username');
         return view('user_new_book_add');
 
     }
 
     public function userProfileEdit(){
         $username= Session::get('username');
-        echo $username;
+        //echo $username;
         $sql=DB::table("boi_user_info")->select('user_name','user_location','user_email_address','user_phone_number','user_password')->where('user_email_address',$username)->get();
 
         return view('user_profile_Edit',compact('sql'));
@@ -53,12 +53,40 @@ class indexController extends Controller
     }
 
     public function editProfile(){
-        echo Session::get('username');
+        //echo Session::get('username');
         $username= Session::get('username');
-        echo $username;
+        //echo $username;
         $sql1=DB::table("boi_user_info")->select('user_name','user_location','user_email_address','user_phone_number','user_password')->where('user_email_address',$username)->get();
 
         return view('user_update_profile_info',compact('sql1'));
 
     }
+
+    public function wanttobuy(Request $request)
+    {
+
+        if ($request->login == "Submit") {
+            if (Session::get('username')) {
+
+                return Redirect::to('/sellbookdetails');
+            }
+
+            else {
+
+                return Redirect::to('/login');
+
+            }
+
+
+        }
+
+        else{
+            echo "nothing found";
+        }
+    }
+
+    public function indexrequestRoute(){
+        return view('/index_request');
+    }
+
 }

@@ -15,13 +15,11 @@
     <div class="container">
         <!-- Start Atribute Navigation -->
         <div class="attr-nav">
+            <ul>
+                <li style="list-style-type: none"> <a href="/user_Profile_Edit"> <img src="ProPicture\{{\Illuminate\Support\Facades\Session::get('avatar')}}" alt="Avatar" class="avatar"></a>
+                </li>
+            </ul>
 
-            <a><li style ="list-style-type: none" class="search"><a href="#"><i class="fa fa-search"></i></a></li>
-
-                <a href="/user_Profile_Edit"> <img src="ProPicture\{{\Illuminate\Support\Facades\Session::get('avatar')}}" alt="Avatar" class="avatar">
-                </a>
-
-                <!-- <li class="side-menu"><a href="#"><i class="fa fa-bars"></i></a></li> -->
         </div>
         <!-- End Atribute Navigation -->
 
@@ -32,7 +30,7 @@
             </button>
             <!--    <a class="navbar-brand" href="#"><img src="images/brand/Logomakr_5EWeEB.png" class="logo" alt=""></a>-->
 
-            <h4> <a class="navbar-brand" href="#">Boi Lagbe</a></h4>
+            <h2> <a style="font-size: 25px;margin-top: 10px" class="navbar-brand" href="#">Boi Lagbe</a></h2>
         </div>
         <!-- End Header Navigation -->
 
@@ -40,21 +38,14 @@
         <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
 
-                <li class="active"><a href="/user_profile_sell_directory">Home</a></li><!-- profile_sell_book_directory.php will be profile main page-->
+                <li class="active"><a href="/">Home</a></li><!-- profile_sell_book_directory.php will be profile main page-->
                 <li><a href="\user_profile_book_edit_delete">Sell</a></li>
-                <li><a href="index_requests.php">Request</a></li>
+                <li><a href="/IndexRequests">Request</a></li>
                 <!--<li><a href="user_buy_books.php">Buy Books</a></li>-->
                 <li><a href="user_Profile_Edit">Profile</a></li>
 
-                    <li><a href="/logout">Log out</a></li>
-               </ul>
-
-
-
-
-
-
-
+                <li><a href="/logout">Log out</a></li>
+            </ul>
         </div><!-- /.navbar-collapse -->
     </div>
 </nav>

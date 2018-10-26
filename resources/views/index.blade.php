@@ -20,15 +20,23 @@
     <link href="css/bootsnav.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/prime.css" rel="stylesheet">
-
+    <link href="css/indexToggole.css" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#tabs" ).tabs();
+        } );
+    </script>
 
 
 </head>
 <body>
 <!-- Header stars -->
-
 @if(\Illuminate\Support\Facades\Session::get('username'))
-        @include("header_aftersignin")
+    @include("header_aftersignin")
 @else
     @include("header")
 @endif
@@ -39,69 +47,101 @@
 <div class="section" style="padding: 5px;">
 
     <div class="container">
-        <!--recent books start-->
-        <div class="row"><br>
-            <h5>Recent Books</h5><hr>
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'buyBooks')" id="defaultOpen">Buy Books</button>
+            <button class="tablinks" onclick="openCity(event, 'requestBooks')">Request Books</button>
         </div>
 
-        <!--recent books content-->
-        <div class="row col-md-1"  style="width:100%;margin-bottom:24px">
-            <div class="container col-md-3" style="float:left;width:50%; height:40%;padding:5px">
+        <div id="buyBooks" class="tabcontent">
+            <div class="row col-md-1"  style="width:100%;margin-bottom:24px">
+                <div class="container col-md-3" style="float:left;width:50%; height:40%;padding:5px">
 
-                <img src="images/test.jpeg" class="img-thumbnail" alt="bookView" style="max-width:100%;min-height:150px;height=336">
+                    <img src="images/test.jpeg" class="img-thumbnail" alt="bookView" style="max-width:100%;min-height:150px;height=336">
 
-                <a href ="/sell_book_details"><button type="submit"class="btn btn-primary btn-block" style="margin-left:;width:70%;min-width:120px;margin-top:5px">Want to Buy</button></a>
+                    <form method="get" action="/wanttobuy">
+                        <button name="login" value="Submit" type="submit" class="btn btn-primary btn-block" style="margin-left:;width:70%;min-width:120px;margin-top:5px">Want to Buy</button>
+                    </form>
+                </div>
+
+                <div class="container col-md-3" style="float:left;width:50%; height:10%;min-height:80px;padding:1vmin">
+
+                    <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">Teach Yourself C</h6>
+                    <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">By Dr. Nova Ahmed</h6>
+                    <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2vmin;color: #8585ad">Book Condition</h6>
+                    <p class="text-justify" style="font-size: 2vmin;"> Dr. Nova Ahmed loves adnan and rifat. this two legends had survived CSe4349759 course by reading this book. Bazar price 2000000 tk but i can give you this only at 10tk</p>
+
+                </div>
+
             </div>
+            <div class="row col-md-1"  style="width:100%;margin-bottom:24px">
+                <div class="container col-md-3" style="float:left;width:50%; height:40%;padding:5px">
 
-            <div class="container col-md-3" style="float:left;width:50%; height:10%;min-height:80px;padding:1vmin">
+                    <img src="images/test.jpeg" class="img-thumbnail" alt="bookView" style="max-width:100%;min-height:150px;height=336">
 
-                <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">Teach Yourself C</h6>
-                <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">By Dr. Nova Ahmed</h6>
-                <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2vmin;color: #8585ad">Book Condition</h6>
-                <p class="text-justify" style="font-size: 2vmin;"> Dr. Nova Ahmed loves adnan and rifat. this two legends had survived CSe4349759 course by reading this book. Bazar price 2000000 tk but i can give you this only at 10tk</p>
+                    <form method="get" action="/wanttobuy">
+                        <button name="login" value="Submit" type="submit" class="btn btn-primary btn-block" style="margin-left:;width:70%;min-width:120px;margin-top:5px">Want to Buy</button>
+                    </form>
+                </div>
+
+                <div class="container col-md-3" style="float:left;width:50%; height:10%;min-height:80px;padding:1vmin">
+
+                    <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">Teach Yourself C</h6>
+                    <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">By Dr. Nova Ahmed</h6>
+                    <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2vmin;color: #8585ad">Book Condition</h6>
+                    <p class="text-justify" style="font-size: 2vmin;"> Dr. Nova Ahmed loves adnan and rifat. this two legends had survived CSe4349759 course by reading this book. Bazar price 2000000 tk but i can give you this only at 10tk</p>
+
+                </div>
+
+            </div>
+            <div class="row col-md-1"  style="width:100%;margin-bottom:24px">
+                <div class="container col-md-3" style="float:left;width:50%; height:40%;padding:5px">
+
+                    <img src="images/test.jpeg" class="img-thumbnail" alt="bookView" style="max-width:100%;min-height:150px;height=336">
+
+                    <form method="get" action="/wanttobuy">
+                        <button name="login" value="Submit" type="submit" class="btn btn-primary btn-block" style="margin-left:;width:70%;min-width:120px;margin-top:5px">Want to Buy</button>
+                    </form>
+                </div>
+
+                <div class="container col-md-3" style="float:left;width:50%; height:10%;min-height:80px;padding:1vmin">
+
+                    <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">Teach Yourself C</h6>
+                    <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">By Dr. Nova Ahmed</h6>
+                    <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2vmin;color: #8585ad">Book Condition</h6>
+                    <p class="text-justify" style="font-size: 2vmin;"> Dr. Nova Ahmed loves adnan and rifat. this two legends had survived CSe4349759 course by reading this book. Bazar price 2000000 tk but i can give you this only at 10tk</p>
+
+                </div>
 
             </div>
         </div>
 
-        <div class="row col-md-1"  style="width:100%;margin-bottom:24px">
-
-            <div class="container col-md-3" style="float:left;width:50%; height:40%;padding:5px">
-
-                <img src="images/test.jpeg" class="img-thumbnail" alt="bookView" style="max-width=100%;min-height:150px;height=336">
-
-                <a href="sell_books_details.php"><button type="button"class="btn btn-primary btn-block" style="margin-left:;width:70%;min-width:120px;margin-top:5px">Want to Buy</button></a>
-
-            </div>
-
-            <div class="container col-md-3" style="float:left;width:50%; height:10%;min-height:80px;padding:1vmin">
-
-                <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">Teach Yourself C</h6>
-                <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">By Dr. Nova Ahmed</h6>
-                <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2vmin;color: #8585ad">Book Condition</h6>
-                <p class="text-justify" style="font-size: 2vmin;"> Dr. Nova Ahmed loves adnan and rifat. this two legends had survived CSe4349759 course by reading this book. Bazar price 2000000 tk but i can give you this only at 10tk</p>
-
-            </div>
-        </div>
-
-        <div class="row col-md-1"  style="width:100%;margin-bottom:24px">
-
-            <div class="container col-md-3" style="float:left;width:50%; height:40%;padding:5px">
-
-                <img src="images/test.jpeg" class="img-thumbnail" alt="bookView" style="max-width=100%;min-height:150px;height=336">
-
-                <a href="sell_books_details.php"><button type="button" class="btn btn-primary btn-block" style="margin-left:;width:70%;min-width:120px;margin-top:5px;background-color:# #ffa366">Want to Buy</button></a>
-
-            </div>
-
-            <div class="container col-md-3" style="float:left;width:50%; height:10%;min-height:80px;padding:1vmin">
-
-                <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">Teach Yourself C</h6>
-                <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">By Dr. Nova Ahmed</h6>
-                <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2vmin;color: #8585ad">Book Condition</h6>
-                <p class="text-justify" style="font-size: 2vmin;"> Dr. Nova Ahmed loves adnan and rifat. this two legends had survived CSe4349759 course by reading this book. Bazar price 2000000 tk but i can give you this only at 10tk</p>
-            </div>
+        <div id="requestBooks" class="tabcontent">
 
         </div>
+
+
+
+        <script>
+            function openCity(evt, cityName) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                document.getElementById(cityName).style.display = "block";
+                evt.currentTarget.className += " active";
+            }
+
+            // Get the element with id="defaultOpen" and click on it
+            document.getElementById("defaultOpen").click();
+        </script>
+
+
+
 
 
 

@@ -15,7 +15,8 @@ class CreateBoiBookDetailsTable extends Migration
     {
         Schema::create('boi_book_details', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('boi_user_info');
             $table->string('sell_book_name',101);
             $table->string('sell_book_author',101);
             $table->string('sell_book_edition',101);
@@ -24,10 +25,6 @@ class CreateBoiBookDetailsTable extends Migration
             $table->enum('sell_book_sell_status',['0','1']);
             $table->string('sell_book_phone_number',101);
             $table->string('sell_book_price',101);
-            $table->string('image_id',100);
-            $table->string('image_name',101);
-            $table->string('image_path',101);
-            $table->string('image_type',101);
             $table->timestamps();
         });
     }

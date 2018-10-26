@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Intervention\Image\ImageManagerStatic as Image;
+use phpDocumentor\Reflection\DocBlock\Tags\See;
 
 Session::start();
 
@@ -16,7 +17,6 @@ class UserProfileEditController extends Controller
     public function propic_upload(Request $request)
     {
 
-        $username = Session::get('username');
         //echo Session::get('username');
 
         if ($request->login == "submit") {
@@ -25,7 +25,7 @@ class UserProfileEditController extends Controller
                $this->validate($request,['image' => 'required|image|mimes:jpeg,png,jpg,JPG,gif,svg|max:2048']);
 
             if ($request->hasFile('image')){
-                echo "file paisi";
+                $username = Session::get('username');
                 $id_data = Session::get('id');
                 $image = $request -> file('image');
                 $name = $id_data. mt_rand(0,100) . '.' .$image->getClientOriginalExtension();
@@ -66,7 +66,6 @@ class UserProfileEditController extends Controller
     public function editprofileDB(Request $request){
 
         if($request->submit = 'Update'){
-            echo "paisi";
             $username = Session::get('username');
             $location = $request->input("user_location");
             $phoneNumber = $request->input("user_phonenumber");
