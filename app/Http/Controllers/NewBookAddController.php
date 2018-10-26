@@ -10,9 +10,9 @@ Session::start();
 
 class NewBookAddController extends Controller
 {
-    public function addBook(Request $request){
+    public function addBook(){
 
-        if ($request ->login == "submit"){
+        /*if ($request ->login == "submit"){
 
             echo Session::get('username');
             $username = Session::get('username');
@@ -43,7 +43,11 @@ class NewBookAddController extends Controller
 
         else{
             echo "paini";
-        }
+        }*/
+
+        echo "submitted";
 
     }
+
+
 }

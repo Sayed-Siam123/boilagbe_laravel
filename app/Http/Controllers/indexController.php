@@ -18,7 +18,7 @@ class indexController extends Controller
     }
 
     public function selldirectoryRoute(){
-        echo Session::get('username');
+        //echo Session::get('username');
 
         return view('user_profile_sell_directory');
 
@@ -27,6 +27,12 @@ class indexController extends Controller
     public function sellEditRoute(){
         echo Session::get('username');
         return view('user_profile_book_edit_delete');
+
+    }
+
+    public function sellbookdetailsRoute(){
+        echo Session::get('username');
+        return view('sell_book_details');
 
     }
 

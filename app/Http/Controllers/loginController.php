@@ -43,7 +43,7 @@ class loginController extends Controller
                     Session::put('id',$id);
                 }
                 //Session::put('avatar',$result);
-                return Redirect::to('/user_profile_sell_directory');
+                return Redirect::to('/');
 
             } else {
                 echo "mile nai";

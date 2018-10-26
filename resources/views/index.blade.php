@@ -26,7 +26,12 @@
 </head>
 <body>
 <!-- Header stars -->
-@include("header")
+
+@if(\Illuminate\Support\Facades\Session::get('username'))
+        @include("header_aftersignin")
+@else
+    @include("header")
+@endif
 <!-- header ends -->
 
 
@@ -45,7 +50,7 @@
 
                 <img src="images/test.jpeg" class="img-thumbnail" alt="bookView" style="max-width:100%;min-height:150px;height=336">
 
-                <a href ="sell_books_details.php"><button type="submit"class="btn btn-primary btn-block" style="margin-left:;width:70%;min-width:120px;margin-top:5px">Want to Buy</button></a>
+                <a href ="/sell_book_details"><button type="submit"class="btn btn-primary btn-block" style="margin-left:;width:70%;min-width:120px;margin-top:5px">Want to Buy</button></a>
             </div>
 
             <div class="container col-md-3" style="float:left;width:50%; height:10%;min-height:80px;padding:1vmin">

@@ -16,14 +16,12 @@
         <!-- Start Atribute Navigation -->
         <div class="attr-nav">
 
-            <a>
-                <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+            <a><li style ="list-style-type: none" class="search"><a href="#"><i class="fa fa-search"></i></a></li>
 
                 <a href="/user_Profile_Edit"> <img src="ProPicture\{{\Illuminate\Support\Facades\Session::get('avatar')}}" alt="Avatar" class="avatar">
                 </a>
 
                 <!-- <li class="side-menu"><a href="#"><i class="fa fa-bars"></i></a></li> -->
-            </ul>
         </div>
         <!-- End Atribute Navigation -->
 

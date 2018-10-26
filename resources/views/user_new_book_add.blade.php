@@ -83,7 +83,7 @@
                 </div>
                 <label for="book_Image">Add at least Three Book Condition Images.</label>
                 <div class="form-group">
-                    <input type="file" name="image_name"  />
+                    <input type="file" name="image_name" multiple />
                 </div>
 
                 <div class="row">
@@ -130,6 +130,21 @@
     }
     document.getElementById('files').addEventListener('change', handleFileSelect, false);
 </script>
+
+{{--<script>
+
+    $(function(){
+        $("input[type='submit']").click(function(){
+            var $fileUpload = $("input[type='file']");
+            if (parseInt($fileUpload.get(0).files.length)>1){
+                alert("You can only upload a maximum of 2 files");
+
+            }
+        });
+    });
+
+
+</script>--}}
 
 <!-- Bootsnavs -->
 <script src="js/bootsnav.js"></script>

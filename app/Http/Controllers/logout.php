@@ -11,6 +11,6 @@ class logout extends Controller
     public function logout()
     {
         Session::flush();
-        return Redirect::to('/login');
+        return Redirect::to('/');
     }
 }

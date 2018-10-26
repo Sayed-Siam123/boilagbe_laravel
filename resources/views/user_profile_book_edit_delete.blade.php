@@ -40,7 +40,7 @@
 
         <div class="row">
             <br>
-            <h5>All Selling Books</h5>
+            <h5>Sell Directory</h5>
             <!-- add book section-->
             <a href="/user_new_book_add" type="button"
                style="

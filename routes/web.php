@@ -19,6 +19,8 @@
 \Illuminate\Support\Facades\Route::get('/user_Profile_Edit','indexController@userProfileEdit');
 \Illuminate\Support\Facades\Route::get('/user_update_profile_info','indexController@editProfile');
 \Illuminate\Support\Facades\Route::get('/logout','logout@logout');
+\Illuminate\Support\Facades\Route::get('/sell_book_details','indexController@sellbookdetailsRoute');
+
 
 
 \Illuminate\Support\Facades\Route::post('/loginDB','loginController@login');
