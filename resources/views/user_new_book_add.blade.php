@@ -83,7 +83,7 @@
                 </div>
                 <label for="book_Image">Add at least Three Book Condition Images.</label>
                 <div class="form-group">
-                    <input type="file" name="image_name" multiple />
+                    <input type="file" name="attachment[]" multiple />
                 </div>
 
                 <div class="row">

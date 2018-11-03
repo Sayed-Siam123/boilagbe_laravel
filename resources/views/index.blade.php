@@ -116,7 +116,48 @@
         </div>
 
         <div id="requestBooks" class="tabcontent">
+            <div class="row col-md-1"  style="width:100%;margin-bottom:24px">
 
+                <div class="container col-md-3" style="width:100%;height:10%;min-height:80px;padding:1vmin">
+
+                    <h4 class="text-justify" style="margin-bottom:.5vmin;font-size: 3.5vmin">Teach Yourself<sub>8th Edition</sub></h4>
+                    <p class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">Dr. Nova Ahmed</p>
+                    <p class="text-justify" style="margin-bottom:.5vmin;font-size: 2.0vmin;"><b>Course Title:</b> cse 115</p><hr>
+                    <p style="margin-top: -15px" class=\"text-justify\" style="font-size: 2vmin;"><b>Receive Location: </b>north south university<br></p>
+                    <p style="margin-top: -15px"><b style="color: red">Price: </b>  Negotiable </p>
+
+
+                    <a href ="sell_books_details.php"><button type="submit"class="btn btn-primary btn-block" style="width:100%;min-width:120px;margin-top:5px">Want to Sell</button></a>
+                </div>
+            </div>
+            <div class="row col-md-1"  style="width:100%;margin-bottom:24px">
+
+                <div class="container col-md-3" style="width:100%;height:10%;min-height:80px;padding:1vmin">
+
+                    <h4 class="text-justify" style="margin-bottom:.5vmin;font-size: 3.5vmin">Teach Yourself<sub>8th Edition</sub></h4>
+                    <p class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">Dr. Nova Ahmed</p>
+                    <p class="text-justify" style="margin-bottom:.5vmin;font-size: 2.0vmin;"><b>Course Title:</b> cse 115</p><hr>
+                    <p style="margin-top: -15px" class=\"text-justify\" style="font-size: 2vmin;"><b>Receive Location: </b>north south university<br></p>
+                    <p style="margin-top: -15px"><b style="color: red">Price: </b>  Negotiable </p>
+
+
+                    <a href ="sell_books_details.php"><button type="submit"class="btn btn-primary btn-block" style="width:100%;min-width:120px;margin-top:5px">Want to Sell</button></a>
+                </div>
+            </div>
+            <div class="row col-md-1"  style="width:100%;margin-bottom:24px">
+
+                <div class="container col-md-3" style="width:100%;height:10%;min-height:80px;padding:1vmin">
+
+                    <h4 class="text-justify" style="margin-bottom:.5vmin;font-size: 3.5vmin">Teach Yourself<sub>8th Edition</sub></h4>
+                    <p class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">Dr. Nova Ahmed</p>
+                    <p class="text-justify" style="margin-bottom:.5vmin;font-size: 2.0vmin;"><b>Course Title:</b> cse 115</p><hr>
+                    <p style="margin-top: -15px" class=\"text-justify\" style="font-size: 2vmin;"><b>Receive Location: </b>north south university<br></p>
+                    <p style="margin-top: -15px"><b style="color: red">Price: </b>  Negotiable </p>
+
+
+                    <a href ="sell_books_details.php"><button type="submit"class="btn btn-primary btn-block" style="width:100%;min-width:120px;margin-top:5px">Want to Sell</button></a>
+                </div>
+            </div>
         </div>
 
 

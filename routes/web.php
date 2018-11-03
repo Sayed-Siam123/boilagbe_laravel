@@ -25,10 +25,8 @@
 
 
 
-
 \Illuminate\Support\Facades\Route::post('/loginDB','loginController@login');
 \Illuminate\Support\Facades\Route::post('/signupDB','signupController@signup');
 \Illuminate\Support\Facades\Route::post('/newbookDB','NewBookAddController@addBook');
 \Illuminate\Support\Facades\Route::post('/pro_pic','UserProfileEditController@propic_upload');
 \Illuminate\Support\Facades\Route::post('/UserProfile','UserProfileEditController@editprofileDB');
-
