@@ -70,6 +70,8 @@
         </div>
 
         <!--recent books content-->
+
+        @foreach($res as $row)
         <div class="row col-md-1"  style="width:100%;margin-bottom:24px">
 
 
@@ -82,9 +84,9 @@
 
             <div class="container col-md-3" style="float:left;width:50%; height:10%;min-height:80px;padding:1vmin">
 
-                <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">Teach Yourself C</h6>
-                <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">By Dr. Nova Ahmed</h6>
-                <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2vmin;color: #8585ad">Book Condition</h6>
+                <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">{{$row->sell_book_name}}</h6>
+                <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">By {{$row->sell_book_author}}</h6>
+                <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2vmin;color: #8585ad">{{$row->sell_book_condition}}</h6>
                 <p class="text-justify" style="font-size: 2vmin;"> Dr. Nova Ahmed loves adnan and rifat. this two legends had survived CSe4349759 course by reading this book. Bazar price 2000000 tk but i can give you this only at 10tk</p>
 
             </div>
@@ -93,58 +95,15 @@
 
 
         </div>
+        @endforeach
 
-        <div class="row col-md-1"  style="width:100%;margin-bottom:24px">
-
-
-
-            <div class="container col-md-3" style="float:left;width:50%; height:40%;padding:5px">
-
-                <img src="images/test.jpeg" class="img-thumbnail" alt="bookView" style="max-width=100%;min-height:150px;height=336">
-
-            </div>
-
-            <div class="container col-md-3" style="float:left;width:50%; height:10%;min-height:80px;padding:1vmin">
-
-                <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">Teach Yourself C</h6>
-                <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">By Dr. Nova Ahmed</h6>
-                <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2vmin;color: #8585ad">Book Condition</h6>
-                <p class="text-justify" style="font-size: 2vmin;"> Dr. Nova Ahmed loves adnan and rifat. this two legends had survived CSe4349759 course by reading this book. Bazar price 2000000 tk but i can give you this only at 10tk</p>
-
-            </div>
-            <button type="button" onclick="" class="btn btn-primary btn-block" style="width:20%;min-width:120px;margin-top:5px;float:left;margin-left:2px">Edit</button>
-            <button type="button" onclick="" class="btn btn-primary btn-block" style="width:20%;min-width:120px;margin-top:5px;float:left;margin-left:12px">Delete</button>
-
-        </div>
-
-        <div class="row col-md-1"  style="width:100%;margin-bottom:24px">
-
-
-
-            <div class="container col-md-3" style="float:left;width:50%; height:40%;padding:5px">
-
-                <img src="images/test.jpeg" class="img-thumbnail" alt="bookView" style="max-width=100%;min-height:150px;height=336">
-
-            </div>
-
-            <div class="container col-md-3" style="float:left;width:50%; height:10%;min-height:80px;padding:1vmin">
-
-                <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">Teach Yourself C</h6>
-                <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">By Dr. Nova Ahmed</h6>
-                <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2vmin;color: #8585ad">Book Condition</h6>
-                <p class="text-justify" style="font-size: 2vmin;"> Dr. Nova Ahmed loves adnan and rifat. this two legends had survived CSe4349759 course by reading this book. Bazar price 2000000 tk but i can give you this only at 10tk</p>
-
-            </div>
-            <button type="button" onclick="" class="btn btn-primary btn-block" style="width:20%;min-width:120px;margin-top:5px;float:left;margin-left:2px">Edit</button>
-            <button type="button" onclick="" class="btn btn-primary btn-block" style="width:20%;min-width:120px;margin-top:5px;float:left;margin-left:12px">Delete</button>
-
-        </div>
-
+        <form action="/dataPass" method="post">
+            {{ csrf_field() }}
         <div class="row">
-            <button type="button" onclick=""class="btn btn-primary btn-block" style="margin-left:;width:100%;min-width:120px;margin-top:5px;">Load More</button>
-            <button type="button" onclick=""class="btn btn-primary btn-block" style="margin-left:;width:100%;min-width:120px;margin-top:5px;">Feed Back</button>
-
+            <input type="submit" name="submit" class="btn btn-primary btn-block" value="Load More" style="min-width:120px; margin-top:5px">
+            <input type="submit" name="submit" class="btn btn-primary btn-block" value="Feed Back" style="min-width:120px; margin-top:5px">
         </div>
+        </form>
 
 
         @include("footer")

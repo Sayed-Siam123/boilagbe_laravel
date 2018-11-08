@@ -12,7 +12,7 @@
 */
 \Illuminate\Support\Facades\Route::get('/','indexController@indexRoute');
 \Illuminate\Support\Facades\Route::get('/user_profile_sell_directory','indexController@selldirectoryRoute');
-\Illuminate\Support\Facades\Route::get('/user_profile_book_edit_delete','indexController@sellEditRoute');
+\Illuminate\Support\Facades\Route::get('/user_profile_book_edit_delete','RetrievingDataFromDB@SellItem');
 \Illuminate\Support\Facades\Route::get('/user_new_book_add','indexController@newBookRoute');
 \Illuminate\Support\Facades\Route::get('/login','loginController@loginRoute');
 \Illuminate\Support\Facades\Route::get('/signup','signupController@signupRoute');
@@ -22,7 +22,6 @@
 \Illuminate\Support\Facades\Route::get('/wanttobuy','indexController@wanttobuy');
 \Illuminate\Support\Facades\Route::get('/sellbookdetails','indexController@sellbookdetailsRoute');
 \Illuminate\Support\Facades\Route::get('/IndexRequests','indexController@indexrequestRoute');
-
 
 
 \Illuminate\Support\Facades\Route::post('/loginDB','loginController@login');

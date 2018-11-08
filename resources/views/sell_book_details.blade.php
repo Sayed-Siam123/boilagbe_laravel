@@ -32,45 +32,38 @@
 
 <!-- Start Content -->
 <div class="section" style="padding: 5px;">
+
     <div class="container">
+        @foreach($respond as $result)
         <div class="row">
             <p>
-            <h4>Teach Yourself C</h4><span>Dr. Nova Ahmed (3429-th edition)</span>
-            <h6 style="float: right;color:red;">Price:<span>100Taka</span></h6>
+            <h4>{{$result->sell_book_name}}</h4><span>{{$result->sell_book_author}} ({{$result->sell_book_edition}}-th edition)</span>
+            <h6 style="float: right;color:red;">Price:<span>{{$result->sell_book_price}} Taka</span></h6>
             </p>
         </div>
-
+        @endforeach
         <div class="row">
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
                     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1" ></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2" ></li>
                 </ol>
-
                 <!-- Wrapper for slides -->
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img src="http://placehold.it/800x400" alt="...">
-                        <!--<div class="carousel-caption">-->
-                        <!--  <h2>Heading</h2>-->
-                        <!--</div>-->
-                    </div>
-                    <div class="item">
-                        <img src="http://placehold.it/800x400" alt="...">
-                        <!--<div class="carousel-caption">-->
-                        <!--  <h2>Heading</h2>-->
-                        <!--</div>-->
-                    </div>
-                    <div class="item">
-                        <img src="http://placehold.it/800x400" alt="...">
-                        <!--<div class="carousel-caption">-->
-                        <!--  <h2>Heading</h2>-->
-                        <!--</div>-->
-                    </div>
-                </div>
 
+
+                <div class="carousel-inner">
+                       @foreach($respond1 as $index=>$result1)
+                        <div class="item @if($index == '1'){{'active'}}@endif">
+                        <img src="book\{{$result1->pic_name}}" alt="...">
+                        <!--<div class="carousel-caption">-->
+                        <!--  <h2>Heading</h2>-->
+                        <!--</div>-->
+                    </div>
+                    @endforeach
+
+                </div>
                 <!-- Controls -->
                 <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left"></span>
@@ -80,33 +73,34 @@
                 </a>
             </div>
         </div>
+
         <div class="row">
+            @foreach($respond as $result)
             <p>
             <h6>Book Condition</h6><hr>
-            <span> Dr. Nova Ahmed loves adnan and rifat. this two legends had survived CSe4349759 course by reading this book. Bazar price 2000000 tk but i can give you this only at 10tk</span><br>
+            <span> {{$result->sell_book_condition}}</span><br>
 
             </p>
             <p>
             <h6>Delivery Location</h6><hr>
-            <span>North South University, Dhaka</span><br>
+            <span>{{$result->sell_book_delivary_location}}</span><br>
 
             </p>
 
             <p>
 
             <h6>Seller Contact</h6><hr>
-            <span>Email: adnan.shariar@gmail.com</span><br>
-            <span>Phone: 01987656432</span>
+            <span>Email: {{$result->user_email_address}}</span><br>
+            <span>Phone: {{$result->sell_book_phone_number}}</span>
             </p>
-            <div class="container col-md-3" style="width:50%; height:40%;padding:5px">
+            @endforeach
+                <div class="container col-md-3" style="width:50%; height:40%;padding:5px">
 
                 <button type="button" onclick=""class="btn btn-primary btn-block" style="width:70%;min-width:120px;margin-top:5px">Order</button>
 
             </div>
 
         </div>
-
-
 
     </div>
 

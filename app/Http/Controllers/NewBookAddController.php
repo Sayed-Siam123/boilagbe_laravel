@@ -121,7 +121,7 @@ class NewBookAddController extends Controller
                 //echo $counter;
             }
 
-            return Redirect::to('/user_new_book_add');
+            return Redirect::to('/user_profile_book_edit_delete');
 
 
         }

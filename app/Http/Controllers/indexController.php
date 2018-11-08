@@ -13,20 +13,24 @@ class indexController extends Controller
 {
     public function indexRoute(){
         //echo Session::get('username');
-        return view('index');
+        $res1=DB::table('boi_book_details')
+            ->select('boi_book_details.sell_book_name','boi_book_details.id','boi_book_details.sell_book_author','boi_book_details.sell_book_condition')
+            ->join('boi_user_info','boi_user_info.id','=','boi_book_details.user_id')
+            ->join('user_upload_post_pic','boi_book_details.id','=','user_upload_post_pic.post_id')
+            ->distinct()
+            ->get();
+
+
+        return view('index',compact('res1'));
+
 
     }
+
 
     public function selldirectoryRoute(){
         //echo Session::get('username');
 
         return view('user_profile_sell_directory');
-
-    }
-
-    public function sellEditRoute(){
-        //echo Session::get('username');
-        return view('user_profile_book_edit_delete');
 
     }
 
@@ -68,7 +72,29 @@ class indexController extends Controller
         if ($request->login == "Submit") {
             if (Session::get('username')) {
 
-                return Redirect::to('/sellbookdetails');
+                $id = Session::get('id');
+                $spostID = $request->input('selectPostId');
+
+                $respond = DB::table('boi_book_details')
+                    ->select('boi_book_details.sell_book_name', 'boi_book_details.id', 'boi_book_details.sell_book_author', 'boi_book_details.sell_book_condition',
+                        'boi_book_details.sell_book_edition','boi_book_details.sell_book_price','boi_book_details.sell_book_delivary_location','boi_user_info.user_email_address','boi_book_details.sell_book_phone_number')
+                    ->join('boi_user_info', 'boi_user_info.id', '=', 'boi_book_details.user_id')
+                    ->join('user_upload_post_pic', 'boi_book_details.id', '=', 'user_upload_post_pic.post_id')
+                    ->where('user_upload_post_pic.post_id', $spostID)
+                    ->distinct()
+                    ->get();
+
+                $respond1 = DB::table('user_upload_post_pic')
+                    ->select('pic_name')
+                    ->join('boi_user_info', 'boi_user_info.id', '=', 'user_upload_post_pic.user_id')
+                    ->join('boi_book_details', 'boi_book_details.id', '=', 'user_upload_post_pic.post_id')
+                    ->where('user_upload_post_pic.post_id', $spostID)
+                    ->distinct()
+                    ->get();
+
+                return view('sell_book_details', compact('respond','respond1'));
+
+
             }
 
             else {
