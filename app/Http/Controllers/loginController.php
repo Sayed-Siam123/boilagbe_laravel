@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -13,7 +14,8 @@ Session::start();
 
 class loginController extends Controller
 {
-    public function loginRoute(){
+    public function loginRoute()
+    {
         return view('user_signin');
     }
 
@@ -25,16 +27,19 @@ class loginController extends Controller
             $username_data = $request->input('username_login');
             $password_data = $request->input('password_login');
 
-            //echo $username_data;
+            $md5checkPW = md5($password_data);
 
-            $results = DB::table('boi_user_info')->where(['user_email_address' => $username_data, 'user_password' => $password_data])->get();
+            $results = DB::table('boi_user_info')
+                ->select('user_email_address','user_password')
+                ->where('user_email_address','=', $username_data)
+                ->where('user_password','=',$md5checkPW)
+                ->get();
 
             if (count($results) > 0) {
                 //echo "paisi";
 
                 Session::put('username', $username_data);
-                Session::put('password', $password_data);
-                $result=DB::table("boi_user_info")->select('id','avatar')->where('user_email_address',$username_data)->get();
+                $result=DB::table("boi_user_info")->select('id','avatar')->where('user_email_address','=',$username_data)->get();
                 foreach ($result as $record)
                 {
                     $avatar_data=$record->avatar;
@@ -47,11 +52,15 @@ class loginController extends Controller
 
             } else {
                 echo "mile nai";
+                Session::put('emailpassDismatch','Invalid Email or Password!!');
+                return Redirect::to('/login');
             }
 
-        } else {
-            echo "painai";
+        }
+        else {
+                echo "painai";
+            }
+
         }
 
-    }
 }

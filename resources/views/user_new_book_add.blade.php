@@ -63,7 +63,13 @@
                 </div>
                 <div class="form-group">
                     <label for="bookCondition">Book Condition</label>
-                    <input type="text" name="bookCondition" class="form-control input-sm" id="bookCondition" placeholder="Book Condition">
+                    <select name="book_condition">
+                        <option value="Very Good">Very Good</option>
+                        <option value="Good">Good</option>
+                        <option value="Average">Average</option>
+                        <option value="Bad">Bad</option>
+                        <option value="Very Bad">Very Bad</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="bookEdition">Book Edition</label>

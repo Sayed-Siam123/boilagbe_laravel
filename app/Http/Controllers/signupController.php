@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Session;
 Session::start();
@@ -21,12 +22,13 @@ class signupController extends Controller
             $phoneNumber = $request->input("user_phonenumber");
             $email = $request->input("user_emailAddress");
             $password = $request->input("user_password");
+            $hashPassword = md5($password);
             $check_password = $request->input("check_password");
 
             if($password==$check_password){
 
                 $data = array('user_name'=>$username,'user_location'=>$location,'user_phone_number'=>$phoneNumber,
-                             'user_email_address'=>$email,'user_password'=>$password);
+                             'user_email_address'=>$email,'user_password'=>$hashPassword);
 
                 DB::table("boi_user_info") ->insert($data);
                 return Redirect::to("/login");

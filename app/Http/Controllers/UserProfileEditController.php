@@ -75,7 +75,8 @@ class UserProfileEditController extends Controller
             if($password == $check_password){
 
                 echo "password milse";
-                DB::table('boi_user_info')->where('user_email_address',$username)
+                DB::table('boi_user_info')
+                    ->where('user_email_address',$username)
                     ->update(['user_location' => $location,'user_phone_number' => $phoneNumber,'user_password' => $password]);
 
                 return Redirect::to('/user_Profile_Edit');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
@@ -14,9 +15,10 @@ class indexController extends Controller
     public function indexRoute(){
         //echo Session::get('username');
         $res1=DB::table('boi_book_details')
-            ->select('boi_book_details.sell_book_name','boi_book_details.id','boi_book_details.sell_book_author','boi_book_details.sell_book_condition')
+            ->select('boi_book_details.sell_book_name','boi_book_details.id','boi_book_details.sell_book_author','boi_book_details.sell_book_condition','boi_book_details.sell_book_sell_status')
             ->join('boi_user_info','boi_user_info.id','=','boi_book_details.user_id')
             ->join('user_upload_post_pic','boi_book_details.id','=','user_upload_post_pic.post_id')
+            ->where('boi_book_details.sell_book_sell_status','1')
             ->distinct()
             ->get();
 
@@ -72,8 +74,8 @@ class indexController extends Controller
         if ($request->login == "Submit") {
             if (Session::get('username')) {
 
-                $id = Session::get('id');
                 $spostID = $request->input('selectPostId');
+
 
                 $respond = DB::table('boi_book_details')
                     ->select('boi_book_details.sell_book_name', 'boi_book_details.id', 'boi_book_details.sell_book_author', 'boi_book_details.sell_book_condition',
@@ -113,6 +115,10 @@ class indexController extends Controller
 
     public function indexrequestRoute(){
         return view('/index_request');
+    }
+
+    public function book_request_add(){
+        return view('user_book_request');
     }
 
 }

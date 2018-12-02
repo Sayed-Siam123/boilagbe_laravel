@@ -26,7 +26,7 @@ class NewBookAddController extends Controller
 
             $bookname = $request->input("bookName");
             $authorname = $request->input("authorName");
-            $bookcondition = $request->input("bookCondition");
+            $bookcondition = $request->input("book_condition");
             $bookedition = $request->input("bookEdition");
             $deliverylocation = $request->input("bookDeliveryLocation");
             $phonenumber = $request->input("phonenumber");
@@ -37,7 +37,7 @@ class NewBookAddController extends Controller
             $username = Session::get('username');
 
             $data = array('user_id'=>$id,'sell_book_name'=>$bookname,'sell_book_author'=>$authorname,'sell_book_edition'=>$bookedition,
-                'sell_book_condition'=>$bookcondition,'sell_book_delivary_location'=>$deliverylocation,'sell_book_sell_status'=>'0',
+                'sell_book_condition'=>$bookcondition,'sell_book_delivary_location'=>$deliverylocation,'sell_book_sell_status'=>'1',
                 'sell_book_phone_number'=>$phonenumber,'sell_book_price'=>$bookprice);
 
 

@@ -94,6 +94,7 @@
             <span>Phone: {{$result->sell_book_phone_number}}</span>
             </p>
             @endforeach
+
                 <div class="container col-md-3" style="width:50%; height:40%;padding:5px">
 
                 <button type="button" onclick=""class="btn btn-primary btn-block" style="width:70%;min-width:120px;margin-top:5px">Order</button>

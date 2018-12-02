@@ -71,7 +71,6 @@
                     <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">{{$row->sell_book_name}}</h6>
                     <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">By {{$row->sell_book_author}}</h6>
                     <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2vmin;color: #8585ad">{{$row->sell_book_condition}}</h6>
-                    <p class="text-justify" style="font-size: 2vmin;"> Dr. Nova Ahmed loves adnan and rifat. this two legends had survived CSe4349759 course by reading this book. Bazar price 2000000 tk but i can give you this only at 10tk</p>
 
                 </div>
 

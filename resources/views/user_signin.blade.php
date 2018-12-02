@@ -39,11 +39,26 @@
             <hr>
         </div>
 
+        <p class="alert-success" style=" font-size: 20px; color: white; background: #ad0314 ">
+        <?php
+
+            $message = \Illuminate\Support\Facades\Session::get('emailpassDismatch');
+
+            if ($message){
+                echo $message;
+            }
+
+        ?>
+        </p>
+
+        {{--<p>asasasas</p>--}}
+
+        <br>
+
         <!--recent books content-->
         <div class="row col-md-13">
 
 
-            <p>If you are not registerd.Please <a href="/signup"> <b>Sign Up</b></a></p>
             <form action="/loginDB" method="post">
                 {{ csrf_field() }}
                 <div class="form-group">
@@ -53,7 +68,7 @@
 
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="text" class="form-control input-sm" name="password_login" id="bookCondition" placeholder="Password">
+                    <input type="password" class="form-control input-sm" name="password_login" id="bookCondition" placeholder="Password">
                 </div>
 
 
@@ -61,7 +76,13 @@
                     <input type="submit" name="login" class="btn btn-primary btn-block" value="Login" style="min-width:120px; margin-top:5px">
                 </div>
             </form>
+
+            <br>
+            <p>If you are not registerd.Please <a href="/signup"> <b>Sign Up</b></a></p>
+
         </div>
+
+
 
         @include("footer")
 

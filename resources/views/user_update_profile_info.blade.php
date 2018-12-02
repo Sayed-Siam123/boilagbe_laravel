@@ -47,16 +47,16 @@
 
                       <div class="form-group">
                               <label for="location">Location</label>
-                              <input type="text" class="form-control input-sm" name="user_location" placeholder="{{$row1->user_location}}">
+                              <input type="text" class="form-control input-sm" name="user_location" value="{{$row1->user_location}}">
                       </div>
                       <div class="form-group">
                               <label for="phoneNumber">Phone Number</label>
-                              <input type="text" class="form-control input-sm" name="user_phonenumber" placeholder="{{$row1->user_phone_number}}">
+                              <input type="text" class="form-control input-sm" name="user_phonenumber" value="{{$row1->user_phone_number}}">
                       </div>
 
                       <div class="form-group">
                               <label for="password">Password</label>
-                              <input type="password" class="form-control input-sm" name="user_password" id="user_password" placeholder="{{$row1->user_password}}"  required>
+                              <input type="password" class="form-control input-sm" name="user_password" id="user_password" value="{{$row1->user_password}}"  required>
                       </div>
                      <div class="fom-group">
                               <label or="password">Confirm Password</label>

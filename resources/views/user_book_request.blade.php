@@ -49,7 +49,7 @@
         <!--recent books content-->
         <div class="row col-md-13">
 
-            <form id="myForm" action="user_book_request.php" method="post" >
+            <form id="myForm" action="/book_request" method="post" >
                 <div class="form-group">
                     <label for="bookName">Book Name</label>
                     <input type="text" name="bookName" class="form-control input-sm" id="bookName" placeholder="Your Book Name" required>
@@ -63,7 +63,7 @@
                     <input type="text" name="edition" class="form-control input-sm" id="edition" placeholder="Book Edition">
                 </div>
                 <div class="form-group">
-                    <label for="bookCondition">Book Condition</label>
+                    <label for="bookCondition">Book Condition(Optional)</label>
                     <input type="text" name="bookCondition" class="form-control input-sm" id="bookCondition" placeholder="Book Condition">
                 </div>
                 <div class="form-group">

@@ -38,7 +38,7 @@
             <br>
             <h5>Request Your Desire Book </h5>
             <!-- add book section-->
-            <a href="user_book_request.php" type="button"
+            <a href="/user_request_book_add" type="button"
                style="
                          width: 120px;
                          min-width:2vmin;

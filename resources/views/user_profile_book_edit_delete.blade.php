@@ -72,7 +72,13 @@
         <!--recent books content-->
 
         @foreach($res as $row)
-        <div class="row col-md-1"  style="width:100%;margin-bottom:24px">
+
+            @if($row->status=='0')
+
+            @else
+
+
+            <div class="row col-md-1"  style="width:100%;margin-bottom:24px">
 
 
 
@@ -83,18 +89,35 @@
             </div>
 
             <div class="container col-md-3" style="float:left;width:50%; height:10%;min-height:80px;padding:1vmin">
-
+                <input type="hidden" value="{{$row->id}}" name="selectPostId_inSell">
                 <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">{{$row->sell_book_name}}</h6>
                 <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">By {{$row->sell_book_author}}</h6>
                 <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2vmin;color: #8585ad">{{$row->sell_book_condition}}</h6>
                 <p class="text-justify" style="font-size: 2vmin;"> Dr. Nova Ahmed loves adnan and rifat. this two legends had survived CSe4349759 course by reading this book. Bazar price 2000000 tk but i can give you this only at 10tk</p>
 
             </div>
-            <button type="button" onclick="" class="btn btn-primary btn-block" style="width:20%;min-width:120px;margin-top:5px;float:left;margin-left:2px">Edit</button>
-            <button type="button" onclick="" class="btn btn-primary btn-block" style="width:20%;min-width:120px;margin-top:5px;float:left;margin-left:12px">Delete</button>
+
+            {{--eikhane last kaj sesh hoise,
+                        ekhn route koro r sathe kore data edit r delete er jonne prepare koro--}}
+
+            <form method="get" action="/editBookinSell">
+                <button type="login" value="Edit" type="submit" class="btn btn-primary btn-block" style="width:20%;min-width:120px;margin-top:5px;float:left;margin-left:2px">Edit</button>
+                <input type="hidden" value="{{$row->id}}" name="selectPostId_inSell">
+            </form>
+
+            <form method="get" action="/deleteBookinSell">
+                <button type="login" value="Delete" type="submit" class="btn btn-primary btn-block" style="width:20%;min-width:120px;margin-top:5px;float:left;margin-left:2px">Delete</button>
+                <input type="hidden" value="{{$row->id}}" name="selectPostId_inSell">
+            </form>
+
+
+            {{--eikhane last kaj sesh hoise,
+                        ekhn route koro r sathe kore data edit r delete er jonne prepare koro--}}
 
 
         </div>
+
+        @endif
         @endforeach
 
         <form action="/dataPass" method="post">

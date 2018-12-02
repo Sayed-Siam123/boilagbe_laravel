@@ -17,7 +17,7 @@ class RetrievingDataFromDB extends Controller
         $username = Session::get('username');
 
         $res = DB::table('boi_book_details')
-            ->select('boi_book_details.sell_book_name', 'boi_book_details.id', 'boi_book_details.sell_book_author', 'boi_book_details.sell_book_condition')
+            ->select('boi_book_details.sell_book_name', 'boi_book_details.id', 'boi_book_details.sell_book_author', 'boi_book_details.sell_book_condition','boi_book_details.sell_book_sell_status as status')
             ->join('boi_user_info', 'boi_user_info.id', '=', 'boi_book_details.user_id')
             ->join('user_upload_post_pic', 'boi_book_details.id', '=', 'user_upload_post_pic.post_id')
             ->where('user_upload_post_pic.user_id', $id)
