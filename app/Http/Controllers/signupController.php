@@ -27,11 +27,31 @@ class signupController extends Controller
 
             if($password==$check_password){
 
-                $data = array('user_name'=>$username,'user_location'=>$location,'user_phone_number'=>$phoneNumber,
+                /*$data = array('user_name'=>$username,'user_location'=>$location,'user_phone_number'=>$phoneNumber,
                              'user_email_address'=>$email,'user_password'=>$hashPassword);
 
                 DB::table("boi_user_info") ->insert($data);
-                return Redirect::to("/login");
+                return Redirect::to("/login");*/
+                $check = DB::table('boi_user_info')
+                    ->where('boi_user_info.user_email_address','=',$email)
+                    ->get();
+
+                if(count($check)>0){
+
+                    Session::put('signup_page_message','Email Exist. Use another email ID!!');
+                    return Redirect::to('/signup');
+
+                }
+                else
+                {
+                    $data = array('user_name'=>$username,'user_location'=>$location,'user_phone_number'=>$phoneNumber,
+                        'user_email_address'=>$email,'user_password'=>$hashPassword);
+
+                    DB::table("boi_user_info") ->insert($data);
+                    \Illuminate\Support\Facades\Session::put('login_page_message','Congratualtions. Please LogIn');
+                    return Redirect::to("/login");
+
+                }
 
             }
 

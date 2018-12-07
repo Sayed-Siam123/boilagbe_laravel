@@ -39,6 +39,18 @@
             <hr>
         </div>
 
+        <p class="alert-success" style=" font-size: 20px; color: white; background: #ad0314 ">
+            <?php
+
+            $message = \Illuminate\Support\Facades\Session::get('signup_page_message');
+
+            if ($message){
+                echo $message;
+            }
+
+            ?>
+        </p>
+
         <!--recent books content-->
         <div class="row col-md-13">
 

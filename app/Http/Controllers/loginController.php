@@ -51,8 +51,7 @@ class loginController extends Controller
                 return Redirect::to('/');
 
             } else {
-                echo "mile nai";
-                Session::put('emailpassDismatch','Invalid Email or Password!!');
+                Session::put('login_page_message','Invalid Email or Password!!');
                 return Redirect::to('/login');
             }
 

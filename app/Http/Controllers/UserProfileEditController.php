@@ -47,7 +47,7 @@ class UserProfileEditController extends Controller
                 }
 
 
-                return Redirect::to('/user_profile_sell_directory');
+                return Redirect::to('/');
 
 
             }
