@@ -31,7 +31,6 @@ class NewBookAddController extends Controller
             $deliverylocation = $request->input("bookDeliveryLocation");
             $phonenumber = $request->input("phonenumber");
             $bookprice = $request->input("bookPrice");
-            $imagename= "sasa.jpg";
 
             $id = Session::get('id');
             $username = Session::get('username');
@@ -113,7 +112,10 @@ class NewBookAddController extends Controller
                     }
 
                     else{
-                        echo "File beshi hoye gese";
+
+                        Session::put('user_new_book_add_message','You have uploaded more than 3 photos!');
+                        return Redirect::to('/user_new_book_add');
+
                     }
 
                 }
@@ -121,7 +123,10 @@ class NewBookAddController extends Controller
                 //echo $counter;
             }
 
+            Session::put('user_profile_edit_delete_message','Book Added Successfully');
             return Redirect::to('/user_profile_book_edit_delete');
+
+
 
 
         }

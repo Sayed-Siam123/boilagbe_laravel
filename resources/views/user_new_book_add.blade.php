@@ -46,6 +46,18 @@
             <hr>
         </div>
 
+        <p class="alert-success" style=" font-size: 20px; color: white; background: #ad0314 ">
+        <?php
+
+        $message = \Illuminate\Support\Facades\Session::get('user_new_book_add_message');
+
+        if ($message){
+            echo $message;
+            \Illuminate\Support\Facades\Session::put('user_new_book_add_message',null);
+        }
+
+        ?>
+
         <!--recent books content-->
         <div class="row col-md-13">
 

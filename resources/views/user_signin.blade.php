@@ -42,10 +42,11 @@
         <p class="alert-success" style=" font-size: 20px; color: white; background: #ad0314 ">
         <?php
 
-            $message = \Illuminate\Support\Facades\Session::get('emailpassDismatch');
+            $message = \Illuminate\Support\Facades\Session::get('login_page_message');
 
             if ($message){
                 echo $message;
+                \Illuminate\Support\Facades\Session::put('login_page_message',null);
             }
 
         ?>

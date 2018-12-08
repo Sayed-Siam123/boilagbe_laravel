@@ -46,6 +46,7 @@
 
             if ($message){
                 echo $message;
+                \Illuminate\Support\Facades\Session::put('signup_page_message',null);
             }
 
             ?>

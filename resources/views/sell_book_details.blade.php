@@ -55,6 +55,7 @@
 
                 <div class="carousel-inner">
                        @foreach($respond1 as $index=>$result1)
+
                         <div class="item @if($index == '1'){{'active'}}@endif">
                         <img src="book\{{$result1->pic_name}}" alt="...">
                         <!--<div class="carousel-caption">-->

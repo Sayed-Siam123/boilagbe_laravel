@@ -38,6 +38,18 @@
             <br>
             <h5>Request Your Desire Book </h5>
             <!-- add book section-->
+            <br>
+            <p class="alert-success" style=" font-size: 20px; color: white; background: #ad0314 ">
+            <?php
+            $message = \Illuminate\Support\Facades\Session::get('index_request_message');
+
+            if ($message){
+                echo $message;
+                \Illuminate\Support\Facades\Session::put('index_request_message',null);
+            }
+
+            ?>
+
             <a href="/user_request_book_add" type="button"
                style="
                          width: 120px;
@@ -65,21 +77,34 @@
         </div>
 
 
-        <!--recent books content-->
+
+            <!--recent books content-->
         <div class="row col-md-1"  style="width:100%;margin-bottom:24px">
+
+            @foreach($res as $row)
+
+                @if($row->status=='0')
+
+                @else
 
            <div class="container col-md-3" style="width:100%;height:10%;min-height:80px;padding:1vmin">
 
-                              <h4 class="text-justify" style="margin-bottom:.5vmin;font-size: 3.5vmin"></h4>
-                              <p class="text-justify" style="margin-bottom:.5vmin;font-size: 3.5vmin;"></p>
-                              <hp class="text-justify" style="margin-bottom:.5vmin;font-size: 3.0vmin;"></hp><hr>
+                              <h4 class="text-justify" style="margin-bottom:.5vmin;font-size: 3.5vmin">{{$row->request_book_name}}</h4>
+                              <p class="text-justify" style="margin-bottom:.5vmin;font-size: 3.5vmin;">{{$row->request_book_author}}</p>
+                              <hp class="text-justify" style="margin-bottom:.5vmin;font-size: 3.0vmin;"></hp>{{$row->request_book_condition}}<hr>
 
-                              <p class=\"text-justify\" style="font-size: 2vmin;"><b>Receive Location:</b><br></p>
+                              <p class=\"text-justify\" style="font-size: 2vmin;"><b>Receive Location:</b><br>{{$row->request_book_receive_location}}</p>
 
 
                             <a href ="sell_books_details.php"><button type="submit"class="btn btn-primary btn-block" style="width:100%;min-width:120px;margin-top:5px">Want to Sell</button></a>
                               </div>
+
+            @endif
+            @endforeach
+
         </div>
+
+
 
        @include("footer")
 

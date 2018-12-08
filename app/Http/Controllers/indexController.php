@@ -23,7 +23,21 @@ class indexController extends Controller
             ->get();
 
 
-        return view('index',compact('res1'));
+        $res2 = DB::table('request_boi_book_details')
+            ->select('request_boi_book_details.request_book_name',
+                'request_boi_book_details.id',
+                'request_boi_book_details.request_book_author',
+                'request_boi_book_details.request_book_condition',
+                'request_boi_book_details.request_book_receive_location',
+                'request_boi_book_details.request_book_edition',
+                'request_boi_book_details.sell_book_sell_status as status')
+            ->join('boi_user_info', 'boi_user_info.id', '=', 'request_boi_book_details.user_id')
+            ->where('request_boi_book_details.sell_book_sell_status','1')
+            ->distinct()
+            ->get();
+
+
+        return view('index',compact('res1','res2'));
 
 
     }
@@ -114,7 +128,18 @@ class indexController extends Controller
     }
 
     public function indexrequestRoute(){
-        return view('/index_request');
+        $id = Session::get('id');
+        $username = Session::get('username');
+
+        $res = DB::table('request_boi_book_details')
+            ->select('request_boi_book_details.request_book_name', 'request_boi_book_details.id', 'request_boi_book_details.request_book_author', 'request_boi_book_details.request_book_condition','request_boi_book_details.request_book_receive_location','request_boi_book_details.sell_book_sell_status as status')
+            ->join('boi_user_info', 'boi_user_info.id', '=', 'request_boi_book_details.user_id')
+            ->where('request_boi_book_details.user_id', $id)
+            ->distinct()
+            ->get();
+
+
+        return view('/index_request', compact('res'));
     }
 
     public function book_request_add(){

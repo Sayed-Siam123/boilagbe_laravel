@@ -24,9 +24,11 @@
 \Illuminate\Support\Facades\Route::get('/IndexRequests','indexController@indexrequestRoute');
 \Illuminate\Support\Facades\Route::get('/editBookinSell','EditSellPostController@editPost');
 \Illuminate\Support\Facades\Route::get('/deleteBookinSell','DeleteSellPostController@deletePost');
-\Illuminate\Support\Facades\Route::get('/user_request_book_add','IndexController@book_request_add');
+\Illuminate\Support\Facades\Route::get('/user_request_book_add','indexController@book_request_add');
 
 
+
+\Illuminate\Support\Facades\Route::post('/book_request','RequestBookController@book_request_post');
 \Illuminate\Support\Facades\Route::post('/updateBook','EditSellPostController@bookUpdate');
 \Illuminate\Support\Facades\Route::post('/loginDB','loginController@login');
 \Illuminate\Support\Facades\Route::post('/signupDB','signupController@signup');

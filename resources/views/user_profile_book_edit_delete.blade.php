@@ -41,6 +41,19 @@
         <div class="row">
             <br>
             <h5>Your Sell Directory</h5>
+            <br>
+            <p class="alert-success" style=" font-size: 20px; color: white; background: #ad0314 ">
+            <?php
+
+            $message = \Illuminate\Support\Facades\Session::get('user_profile_edit_delete_message');
+
+            if ($message){
+                echo $message;
+                \Illuminate\Support\Facades\Session::put('user_profile_edit_delete_message',null);
+            }
+
+            ?>
+
             <!-- add book section-->
             <a href="/user_new_book_add" type="button"
                style="

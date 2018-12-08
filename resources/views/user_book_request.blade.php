@@ -49,33 +49,40 @@
         <!--recent books content-->
         <div class="row col-md-13">
 
-            <form id="myForm" action="/book_request" method="post" >
+            <form action="/book_request" method="post" >
+                {{csrf_field()}}
                 <div class="form-group">
                     <label for="bookName">Book Name</label>
                     <input type="text" name="bookName" class="form-control input-sm" id="bookName" placeholder="Your Book Name" required>
                 </div>
                 <div class="form-group">
                     <label for="author">Author</label>
-                    <input type="text" name="author" class="form-control input-sm" id="author" placeholder="Author Name">
+                    <input type="text" name="author" class="form-control input-sm" id="author" placeholder="Author Name" >
                 </div>
                 <div class="form-group">
                     <label for="edition">Edition (Optional)</label>
                     <input type="text" name="edition" class="form-control input-sm" id="edition" placeholder="Book Edition">
                 </div>
                 <div class="form-group">
-                    <label for="bookCondition">Book Condition(Optional)</label>
-                    <input type="text" name="bookCondition" class="form-control input-sm" id="bookCondition" placeholder="Book Condition">
+                    <label for="bookCondition">Book Condition</label>
+                    <select name="book_condition">
+                        <option value="Very Good">Very Good</option>
+                        <option value="Good">Good</option>
+                        <option value="Average">Average</option>
+                        <option value="Bad">Bad</option>
+                        <option value="Very Bad">Very Bad</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="deliveryLocation">Delivery Receive Location</label>
-                    <input type="text" name="deliveryLocation" class="form-control input-sm" id="deliveryLocation" placeholder="Delivery Location" required>
+                    <input type="text" name="deliveryLocation" class="form-control input-sm" id="deliveryLocation" placeholder="Delivery Location" >
                 </div>
                 <!--   <div class="form-group">
                            <label for="phoneNumber">Phone Number</label>
                            <input type="text" class="form-control input-sm" id="phoneNumber" placeholder="Optional" required>
                    </div>-->
                 <div class="row">
-                    <input type="submit" name="submit" class="btn btn-primary btn-block" value="submit" style="width:100%;min-width:120px; margin-top:5px">
+                    <input type="submit" name="login" class="btn btn-primary btn-block" value="Submit" style="width:100%;min-width:120px; margin-top:5px">
                 </div>
             </form>
 

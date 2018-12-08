@@ -56,7 +56,8 @@ class signupController extends Controller
             }
 
             else{
-                echo "password milenai";
+                Session::put('signup_page_message','Password did not match. Try Again!');
+                return Redirect::to('/signup');
             }
 
         }
