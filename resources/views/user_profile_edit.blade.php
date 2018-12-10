@@ -61,23 +61,23 @@
                         @foreach($sql as $row)
                         <tr>
                             <td style="font-size:2vmin">Name</td>
-                            <td style="font-size:2vmin">{{$row->user_name}}</td>
+                            <td style="font-size:2vmin">{{$row->name}}</td>
                           </tr>
                         <tr>
 
                             <td style="font-size:2vmin">Location:</td>
-                            <td style="font-size:2vmin">{{$row->user_location}}</td>
+                            <td style="font-size:2vmin">{{$row->location}}</td>
                           </tr>         
                           <tr>
                             <td style="font-size:2vmin">Email Address:</td>
-                            <td style="font-size:2vmin">{{$row->user_email_address}}</td>
+                            <td style="font-size:2vmin">{{$row->email}}</td>
                           </tr>
                             <td style="font-size:2vmin">Phone Number:</td>
-                            <td style="font-size:2vmin">{{$row->user_phone_number}}</td>
+                            <td style="font-size:2vmin">{{$row->phone}}</td>
                           </tr>
                           <tr>
                             <td style="font-size:2vmin">Password:</td>
-                            <td style="font-size:2vmin">{{$row->user_password}}</td>
+                            <td style="font-size:2vmin">{{$row->password}}</td>
                           </tr>
                         @endforeach
                         </tbody>

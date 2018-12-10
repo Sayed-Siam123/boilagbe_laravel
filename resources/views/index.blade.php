@@ -35,7 +35,7 @@
 </head>
 <body>
 <!-- Header stars -->
-@if(\Illuminate\Support\Facades\Session::get('username'))
+@if(\Illuminate\Support\Facades\Auth::id())
     @include("header_aftersignin")
 @else
     @include("header")

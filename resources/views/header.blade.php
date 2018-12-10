@@ -32,7 +32,7 @@
         <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
             <li class="active"><a href="/">Home</a></li><!-- profile_sell_book_directory.php will be profile main page-->
             <li><a href="#">Contact Us</a></li>
-            <li><a href="/login">Log In</a></li>
+            <li><a href={{route('login')}}>Log In</a></li>
         </ul>
     </div><!-- /.navbar-collapse -->
 </div>

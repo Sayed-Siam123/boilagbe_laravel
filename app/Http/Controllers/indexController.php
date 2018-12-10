@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
@@ -16,7 +17,7 @@ class indexController extends Controller
         //echo Session::get('username');
         $res1=DB::table('boi_book_details')
             ->select('boi_book_details.sell_book_name','boi_book_details.id','boi_book_details.sell_book_author','boi_book_details.sell_book_condition','boi_book_details.sell_book_sell_status')
-            ->join('boi_user_info','boi_user_info.id','=','boi_book_details.user_id')
+            ->join('users','users.id','=','boi_book_details.user_id')
             ->join('user_upload_post_pic','boi_book_details.id','=','user_upload_post_pic.post_id')
             ->where('boi_book_details.sell_book_sell_status','1')
             ->distinct()
@@ -31,7 +32,7 @@ class indexController extends Controller
                 'request_boi_book_details.request_book_receive_location',
                 'request_boi_book_details.request_book_edition',
                 'request_boi_book_details.sell_book_sell_status as status')
-            ->join('boi_user_info', 'boi_user_info.id', '=', 'request_boi_book_details.user_id')
+            ->join('users', 'users.id', '=', 'request_boi_book_details.user_id')
             ->where('request_boi_book_details.sell_book_sell_status','1')
             ->distinct()
             ->get();
@@ -63,9 +64,10 @@ class indexController extends Controller
     }
 
     public function userProfileEdit(){
-        $username= Session::get('username');
+
+        $username= Auth::user()->email;
         //echo $username;
-        $sql=DB::table("boi_user_info")->select('user_name','user_location','user_email_address','user_phone_number','user_password')->where('user_email_address',$username)->get();
+        $sql=DB::table("users")->select('name','location','email','phone','password')->where('email',$username)->get();
 
         return view('user_profile_Edit',compact('sql'));
 
@@ -74,9 +76,9 @@ class indexController extends Controller
 
     public function editProfile(){
         //echo Session::get('username');
-        $username= Session::get('username');
-        //echo $username;
-        $sql1=DB::table("boi_user_info")->select('user_name','user_location','user_email_address','user_phone_number','user_password')->where('user_email_address',$username)->get();
+        $username= Auth::user()->email;
+
+        $sql1=DB::table("users")->select('name','location','email','phone','password')->where('email',$username)->get();
 
         return view('user_update_profile_info',compact('sql1'));
 
@@ -86,15 +88,23 @@ class indexController extends Controller
     {
 
         if ($request->login == "Submit") {
-            if (Session::get('username')) {
+            if (Auth::id()) {
+
 
                 $spostID = $request->input('selectPostId');
 
 
                 $respond = DB::table('boi_book_details')
-                    ->select('boi_book_details.sell_book_name', 'boi_book_details.id', 'boi_book_details.sell_book_author', 'boi_book_details.sell_book_condition',
-                        'boi_book_details.sell_book_edition','boi_book_details.sell_book_price','boi_book_details.sell_book_delivary_location','boi_user_info.user_email_address','boi_book_details.sell_book_phone_number')
-                    ->join('boi_user_info', 'boi_user_info.id', '=', 'boi_book_details.user_id')
+                    ->select('boi_book_details.sell_book_name',
+                        'boi_book_details.id',
+                        'boi_book_details.sell_book_author',
+                        'boi_book_details.sell_book_condition',
+                        'boi_book_details.sell_book_edition',
+                        'boi_book_details.sell_book_price',
+                        'boi_book_details.sell_book_delivary_location',
+                        'users.email',
+                        'boi_book_details.sell_book_phone_number')
+                    ->join('users', 'users.id', '=', 'boi_book_details.user_id')
                     ->join('user_upload_post_pic', 'boi_book_details.id', '=', 'user_upload_post_pic.post_id')
                     ->where('user_upload_post_pic.post_id', $spostID)
                     ->distinct()
@@ -102,7 +112,7 @@ class indexController extends Controller
 
                 $respond1 = DB::table('user_upload_post_pic')
                     ->select('pic_name')
-                    ->join('boi_user_info', 'boi_user_info.id', '=', 'user_upload_post_pic.user_id')
+                    ->join('users', 'users.id', '=', 'user_upload_post_pic.user_id')
                     ->join('boi_book_details', 'boi_book_details.id', '=', 'user_upload_post_pic.post_id')
                     ->where('user_upload_post_pic.post_id', $spostID)
                     ->distinct()
@@ -115,7 +125,7 @@ class indexController extends Controller
 
             else {
 
-                return Redirect::to('/login');
+                return Redirect::to('login');
 
             }
 
@@ -128,12 +138,12 @@ class indexController extends Controller
     }
 
     public function indexrequestRoute(){
-        $id = Session::get('id');
-        $username = Session::get('username');
+        $id = Auth::id();
+        $username = Auth::user()->name;
 
         $res = DB::table('request_boi_book_details')
             ->select('request_boi_book_details.request_book_name', 'request_boi_book_details.id', 'request_boi_book_details.request_book_author', 'request_boi_book_details.request_book_condition','request_boi_book_details.request_book_receive_location','request_boi_book_details.sell_book_sell_status as status')
-            ->join('boi_user_info', 'boi_user_info.id', '=', 'request_boi_book_details.user_id')
+            ->join('users', 'users.id', '=', 'request_boi_book_details.user_id')
             ->where('request_boi_book_details.user_id', $id)
             ->distinct()
             ->get();

@@ -15,8 +15,8 @@ class EditSellPostController extends Controller
 
         $respond = DB::table('boi_book_details')
             ->select('boi_book_details.sell_book_name as name', 'boi_book_details.id as id', 'boi_book_details.sell_book_author as author', 'boi_book_details.sell_book_condition as condition',
-                'boi_book_details.sell_book_edition as edition','boi_book_details.sell_book_price as price','boi_book_details.sell_book_delivary_location as location','boi_user_info.user_email_address','boi_book_details.sell_book_phone_number as number','boi_book_details.sell_book_sell_status as status')
-            ->join('boi_user_info', 'boi_user_info.id', '=', 'boi_book_details.user_id')
+                'boi_book_details.sell_book_edition as edition','boi_book_details.sell_book_price as price','boi_book_details.sell_book_delivary_location as location','users.email','boi_book_details.sell_book_phone_number as number','boi_book_details.sell_book_sell_status as status')
+            ->join('users', 'users.id', '=', 'boi_book_details.user_id')
             ->join('user_upload_post_pic', 'boi_book_details.id', '=', 'user_upload_post_pic.post_id')
             ->where('user_upload_post_pic.post_id', $postID)
             ->distinct()

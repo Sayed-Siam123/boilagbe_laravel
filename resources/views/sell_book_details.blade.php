@@ -56,7 +56,8 @@
                 <div class="carousel-inner">
                        @foreach($respond1 as $index=>$result1)
 
-                        <div class="item @if($index == '1'){{'active'}}@endif">
+
+                        <div class="item @if($index == '0'){{'active'}}@endif">
                         <img src="book\{{$result1->pic_name}}" alt="...">
                         <!--<div class="carousel-caption">-->
                         <!--  <h2>Heading</h2>-->
@@ -91,7 +92,7 @@
             <p>
 
             <h6>Seller Contact</h6><hr>
-            <span>Email: {{$result->user_email_address}}</span><br>
+            <span>Email: {{$result->email}}</span><br>
             <span>Phone: {{$result->sell_book_phone_number}}</span>
             </p>
             @endforeach

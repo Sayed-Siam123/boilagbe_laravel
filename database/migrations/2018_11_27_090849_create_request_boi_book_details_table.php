@@ -16,7 +16,7 @@ class CreateRequestBoiBookDetailsTable extends Migration
         Schema::create('request_boi_book_details', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('boi_user_info');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('request_book_name',101);
             $table->string('request_book_author',101);
             $table->string('request_book_edition',101);

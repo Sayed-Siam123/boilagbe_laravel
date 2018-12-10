@@ -41,22 +41,22 @@
                     {{csrf_field()}}
 
                 @foreach($sql1 as $row1)
-                      <h3>{{$row1->user_name}}</h3>
-                      <h6>{{$row1->user_email_address}}</h6>
+                      <h3>{{$row1->name}}</h3>
+                      <h6>{{$row1->email}}</h6>
                       <h4>Update User Information</h4><br>
 
                       <div class="form-group">
                               <label for="location">Location</label>
-                              <input type="text" class="form-control input-sm" name="user_location" value="{{$row1->user_location}}">
+                              <input type="text" class="form-control input-sm" name="user_location" value="{{$row1->location}}">
                       </div>
                       <div class="form-group">
                               <label for="phoneNumber">Phone Number</label>
-                              <input type="text" class="form-control input-sm" name="user_phonenumber" value="{{$row1->user_phone_number}}">
+                              <input type="text" class="form-control input-sm" name="user_phonenumber" value="{{$row1->phone}}">
                       </div>
 
                       <div class="form-group">
                               <label for="password">Password</label>
-                              <input type="password" class="form-control input-sm" name="user_password" id="user_password" value="{{$row1->user_password}}"  required>
+                              <input type="password" class="form-control input-sm" name="user_password" id="user_password" value="{{$row1->password}}"  required>
                       </div>
                      <div class="fom-group">
                               <label or="password">Confirm Password</label>

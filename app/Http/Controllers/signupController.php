@@ -10,9 +10,6 @@ use Session;
 Session::start();
 class signupController extends Controller
 {
-    public function signupRoute(){
-        return view('user_signup');
-    }
 
     public function signup(Request $request){
 

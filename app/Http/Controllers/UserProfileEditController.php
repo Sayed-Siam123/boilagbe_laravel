@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Foundation\PackageManifest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -25,8 +26,8 @@ class UserProfileEditController extends Controller
                $this->validate($request,['image' => 'required|image|mimes:jpeg,png,jpg,JPG,gif,svg|max:2048']);
 
             if ($request->hasFile('image')){
-                $username = Session::get('username');
-                $id_data = Session::get('id');
+                $username = Auth::user()->email;
+                $id_data = Auth::id();
                 $image = $request -> file('image');
                 $name = $id_data. mt_rand(0,100) . '.' .$image->getClientOriginalExtension();
                 $image_resize = Image::make($image->getRealPath());
@@ -34,13 +35,13 @@ class UserProfileEditController extends Controller
                 $destination = public_path('/ProPicture');
                 $image_resize->save($destination.'/'.$name);
 
-                echo $name;
+//                echo $name;
                 //echo Session::get('id');
 
-                DB::table('boi_user_info')->where('user_email_address',$username)
+                DB::table('users')->where('email',$username)
                           ->update(['avatar' => $name]);
 
-                $result=DB::table("boi_user_info")->select('avatar')->where('user_email_address',$username)->get();
+                $result=DB::table("users")->select('avatar')->where('email',$username)->get();
                 foreach ($result as $record) {
                     $avatar_data = $record->avatar;
                     Session::put('avatar', $avatar_data);

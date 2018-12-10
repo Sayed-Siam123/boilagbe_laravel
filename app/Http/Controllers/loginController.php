@@ -14,10 +14,6 @@ Session::start();
 
 class loginController extends Controller
 {
-    public function loginRoute()
-    {
-        return view('user_signin');
-    }
 
     public function login(Request $request)
     {

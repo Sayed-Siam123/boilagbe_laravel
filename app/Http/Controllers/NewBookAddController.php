@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Foundation\PackageManifest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
@@ -32,8 +33,10 @@ class NewBookAddController extends Controller
             $phonenumber = $request->input("phonenumber");
             $bookprice = $request->input("bookPrice");
 
-            $id = Session::get('id');
-            $username = Session::get('username');
+            $id = Auth::id();
+            $username = Auth::user()->name;
+
+
 
             $data = array('user_id'=>$id,'sell_book_name'=>$bookname,'sell_book_author'=>$authorname,'sell_book_edition'=>$bookedition,
                 'sell_book_condition'=>$bookcondition,'sell_book_delivary_location'=>$deliverylocation,'sell_book_sell_status'=>'1',

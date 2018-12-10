@@ -10,12 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
 \Illuminate\Support\Facades\Route::get('/','indexController@indexRoute');
 \Illuminate\Support\Facades\Route::get('/user_profile_sell_directory','indexController@selldirectoryRoute');
 \Illuminate\Support\Facades\Route::get('/user_profile_book_edit_delete','RetrievingDataFromDB@SellItem');
 \Illuminate\Support\Facades\Route::get('/user_new_book_add','indexController@newBookRoute');
-\Illuminate\Support\Facades\Route::get('/login','loginController@loginRoute');
-\Illuminate\Support\Facades\Route::get('/signup','signupController@signupRoute');
+//\Illuminate\Support\Facades\Route::get('/login','loginController@loginRoute');
+//\Illuminate\Support\Facades\Route::get('/signup','signupController@signupRoute');
 \Illuminate\Support\Facades\Route::get('/user_Profile_Edit','indexController@userProfileEdit');
 \Illuminate\Support\Facades\Route::get('/user_update_profile_info','indexController@editProfile');
 \Illuminate\Support\Facades\Route::get('/logout','logout@logout');
@@ -35,3 +37,7 @@
 \Illuminate\Support\Facades\Route::post('/newbookDB','NewBookAddController@addBook');
 \Illuminate\Support\Facades\Route::post('/pro_pic','UserProfileEditController@propic_upload');
 \Illuminate\Support\Facades\Route::post('/UserProfile','UserProfileEditController@editprofileDB');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -16,7 +16,7 @@
         <!-- Start Atribute Navigation -->
         <div class="attr-nav">
             <ul>
-                <li style="list-style-type: none"> <a href="/user_Profile_Edit"> <img src="ProPicture\{{\Illuminate\Support\Facades\Session::get('avatar')}}" alt="Avatar" class="avatar"></a>
+                <li style="list-style-type: none"> <a href="/user_Profile_Edit"> <img src="ProPicture\{{\Illuminate\Support\Facades\Auth::user()->avatar}}" alt="Avatar" class="avatar"></a>
                 </li>
             </ul>
 

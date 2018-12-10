@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -20,8 +21,8 @@ class RequestBookController extends Controller
             $bookcondition = $request->input("book_condition");
             $deliverylocation = $request->input("deliveryLocation");
 
-            $id = Session::get('id');
-            $username = Session::get('username');
+            $id = Auth::id();
+            $username = Auth::user()->name;
 
             $data = array('user_id'=>$id,'request_book_name'=>$bookname,'request_book_author'=>$authorname,'request_book_edition'=>$bookedition,
                 'request_book_condition'=>$bookcondition,'request_book_receive_location'=>$deliverylocation,'sell_book_sell_status'=>'1');
