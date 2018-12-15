@@ -15,6 +15,16 @@ class indexController extends Controller
 {
     public function indexRoute(){
         //echo Session::get('username');
+        /*$res1=DB::table('boi_book_details')
+            ->select('boi_book_details.sell_book_name','boi_book_details.id','boi_book_details.sell_book_author','boi_book_details.sell_book_condition',
+                'boi_book_details.sell_book_sell_status','user_upload_post_pic.pic_name')
+            ->join('users','users.id','=','boi_book_details.user_id')
+            ->join('user_upload_post_pic','user_upload_post_pic.post_id','=','boi_book_details.id')
+            ->where('boi_book_details.sell_book_sell_status','1')
+            ->orderBy('id', 'asc')
+            ->distinct()
+            ->get();*/
+
         $res1=DB::table('boi_book_details')
             ->select('boi_book_details.sell_book_name','boi_book_details.id','boi_book_details.sell_book_author','boi_book_details.sell_book_condition','boi_book_details.sell_book_sell_status')
             ->join('users','users.id','=','boi_book_details.user_id')
@@ -23,6 +33,35 @@ class indexController extends Controller
             ->distinct()
             ->get();
 
+
+        $img=DB::table('user_upload_post_pic')
+            ->select('user_upload_post_pic.user_id','user_upload_post_pic.post_id','user_upload_post_pic.pic_name')
+            ->leftJoin('boi_book_details','boi_book_details.id','=','user_upload_post_pic.post_id')
+            ->leftJoin('users','users.id','=','boi_book_details.user_id')
+            ->where('boi_book_details.sell_book_sell_status','1')
+            ->groupBy('user_upload_post_pic.post_id')
+            ->get();
+
+        foreach ($img as $row){
+            echo $row->pic_name;
+        }
+
+
+
+
+        /*$img=DB::table('users')
+            ->groupBy('id')
+            ->having('id', '<', 100)
+            ->get();
+
+
+
+
+        foreach ($img as $row){
+
+            echo $row->id;
+
+        }*/
 
         $res2 = DB::table('request_boi_book_details')
             ->select('request_boi_book_details.request_book_name',
@@ -38,7 +77,7 @@ class indexController extends Controller
             ->get();
 
 
-        return view('index',compact('res1','res2'));
+        /*return view('index',compact('res1','res2','img'));*/
 
 
     }
@@ -120,7 +159,6 @@ class indexController extends Controller
 
                 return view('sell_book_details', compact('respond','respond1'));
 
-
             }
 
             else {
@@ -137,23 +175,34 @@ class indexController extends Controller
         }
     }
 
-    public function indexrequestRoute(){
+    public function indexrequestRoute()
+    {
         $id = Auth::id();
-        $username = Auth::user()->name;
+        //$username = Auth::user()->name;
+        if (Auth::check()) {
+            $res = DB::table('request_boi_book_details')
+                ->select('request_boi_book_details.request_book_name', 'request_boi_book_details.id', 'request_boi_book_details.request_book_author', 'request_boi_book_details.request_book_condition', 'request_boi_book_details.request_book_receive_location', 'request_boi_book_details.sell_book_sell_status as status')
+                ->join('users', 'users.id', '=', 'request_boi_book_details.user_id')
+                ->where('request_boi_book_details.user_id', $id)
+                ->distinct()
+                ->get();
 
-        $res = DB::table('request_boi_book_details')
-            ->select('request_boi_book_details.request_book_name', 'request_boi_book_details.id', 'request_boi_book_details.request_book_author', 'request_boi_book_details.request_book_condition','request_boi_book_details.request_book_receive_location','request_boi_book_details.sell_book_sell_status as status')
-            ->join('users', 'users.id', '=', 'request_boi_book_details.user_id')
-            ->where('request_boi_book_details.user_id', $id)
-            ->distinct()
-            ->get();
 
+            return view('/index_request', compact('res'));
+        }
 
-        return view('/index_request', compact('res'));
+        else{
+            return \redirect('login');
+        }
+
     }
 
     public function book_request_add(){
         return view('user_book_request');
+    }
+
+    public function changepass(){
+        return view('user_change_password');
     }
 
 }

@@ -14,13 +14,13 @@
     <title>BoiLagbe</title>
 
     <!-- CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href={{\Illuminate\Support\Facades\URL::asset(('css/bootstrap.min.css'))}} rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/bootsnav.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/prime.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel='stylesheet' type='text/css'>
+    <link href={{\Illuminate\Support\Facades\URL::asset(('css/animate.css'))}} rel="stylesheet">
+    <link href={{\Illuminate\Support\Facades\URL::asset(('css/bootsnav.css'))}} rel="stylesheet">
+    <link href={{\Illuminate\Support\Facades\URL::asset(('css/style.css'))}} rel="stylesheet">
+    <link href={{\Illuminate\Support\Facades\URL::asset(('css/prime.css'))}} rel="stylesheet">
 </head>
 
 <body>
@@ -71,7 +71,7 @@
 
                         @if ($errors->has('email'))
                             <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong style="color:  #e74c3c ">{{ $errors->first('email') }}</strong>
                                     </span>
                         @endif
                     </div>
@@ -85,7 +85,7 @@
 
                         @if ($errors->has('password'))
                             <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
+                                        <strong style="color:  #e74c3c">{{ $errors->first('password') }}</strong>
                                     </span>
                         @endif
                     </div>

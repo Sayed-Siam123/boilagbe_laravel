@@ -69,7 +69,7 @@
 
                         @if ($errors->has('name'))
                             <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong style="color:  #e74c3c">{{ $errors->first('name') }}</strong>
                                     </span>
                         @endif
                     </div>
@@ -83,7 +83,7 @@
 
                         @if ($errors->has('location'))
                             <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('location') }}</strong>
+                                        <strong style="color:  #e74c3c">{{ $errors->first('location') }}</strong>
                                     </span>
                         @endif
                     </div>
@@ -97,7 +97,7 @@
 
                         @if ($errors->has('phone'))
                             <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('phone') }}</strong>
+                                        <strong style="color:  #e74c3c">{{ $errors->first('phone') }}</strong>
                                     </span>
                         @endif
                     </div>
@@ -111,7 +111,7 @@
 
                         @if ($errors->has('email'))
                             <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong style="color:  #e74c3c">{{ $errors->first('email') }}</strong>
                                     </span>
                         @endif
                     </div>
@@ -125,7 +125,7 @@
 
                         @if ($errors->has('password'))
                             <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
+                                        <strong style="color:  #e74c3c">{{ $errors->first('password') }}</strong>
                                     </span>
                         @endif
                     </div>

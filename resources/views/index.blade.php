@@ -52,7 +52,19 @@
             <button class="tablinks" onclick="openCity(event, 'requestBooks')">Request Books</button>
         </div>
 
+
         <div id="buyBooks" class="tabcontent">
+
+
+            <br><form action="" class="search-form">
+                <div class="form-group has-feedback">
+                    <label for="search" class="sr-only">Search</label>
+                    <input type="text" class="form-control" name="search" id="search" placeholder="search">
+                    <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                </div>
+            </form><br>
+
+
             @foreach($res1 as $row)
             <div class="row col-md-1"  style="width:100%;margin-bottom:24px">
                 <div class="container col-md-3" style="float:left;width:50%; height:40%;padding:5px">
@@ -79,6 +91,17 @@
         </div>
 
         <div id="requestBooks" class="tabcontent">
+
+
+            <br><form action="" class="search-form">
+                <div class="form-group has-feedback">
+                    <label for="search" class="sr-only">Search</label>
+                    <input type="text" class="form-control" name="search" id="search" placeholder="search">
+                    <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                </div>
+            </form>
+            <br>
+
 
             @foreach($res2 as $row1)
 

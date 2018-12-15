@@ -54,7 +54,7 @@
                               <input type="text" class="form-control input-sm" name="user_phonenumber" value="{{$row1->phone}}">
                       </div>
 
-                      <div class="form-group">
+                      {{--<div class="form-group">
                               <label for="password">Password</label>
                               <input type="password" class="form-control input-sm" name="user_password" id="user_password" value="{{$row1->password}}"  required>
                       </div>
@@ -63,7 +63,8 @@
                               <input type="password" class="form-control input-sm" name="check_password" id="check_password" required>
 
                       </div>
-                      <div class="row">
+                      --}}
+                    <div class="row">
                        <input type="submit" name="submit" class="btn btn-primary btn-block" value="Update" style="width:100%;min-width:120px; margin-top:5px" onclick="user_profile_Edit.php">
                       </div>
                     @endforeach

@@ -27,6 +27,7 @@
 \Illuminate\Support\Facades\Route::get('/editBookinSell','EditSellPostController@editPost');
 \Illuminate\Support\Facades\Route::get('/deleteBookinSell','DeleteSellPostController@deletePost');
 \Illuminate\Support\Facades\Route::get('/user_request_book_add','indexController@book_request_add');
+\Illuminate\Support\Facades\Route::get('/change_password','indexController@changepass');
 
 
 
@@ -37,6 +38,7 @@
 \Illuminate\Support\Facades\Route::post('/newbookDB','NewBookAddController@addBook');
 \Illuminate\Support\Facades\Route::post('/pro_pic','UserProfileEditController@propic_upload');
 \Illuminate\Support\Facades\Route::post('/UserProfile','UserProfileEditController@editprofileDB');
+\Illuminate\Support\Facades\Route::post('/UserPasschange','UserProfileEditController@user_change_password');
 
 Auth::routes();
 

@@ -30,7 +30,7 @@
             </button>
             <!--    <a class="navbar-brand" href="#"><img src="images/brand/Logomakr_5EWeEB.png" class="logo" alt=""></a>-->
 
-            <h2> <a style="font-size: 25px;margin-top: 10px" class="navbar-brand" href="#">Boi Lagbe</a></h2>
+            <h2> <a style="font-size: 25px;margin-top: 10px" class="navbar-brand"  href="/">Boi Lagbe</a></h2>
         </div>
         <!-- End Header Navigation -->
 

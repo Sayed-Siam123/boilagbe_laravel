@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
@@ -11,20 +12,25 @@ class EditSellPostController extends Controller
 
     public function editPost(Request $request){
 
-        $postID = $request->input('selectPostId_inSell');
+        if(Auth::check()) {
+            $postID = $request->input('selectPostId_inSell');
 
-        $respond = DB::table('boi_book_details')
-            ->select('boi_book_details.sell_book_name as name', 'boi_book_details.id as id', 'boi_book_details.sell_book_author as author', 'boi_book_details.sell_book_condition as condition',
-                'boi_book_details.sell_book_edition as edition','boi_book_details.sell_book_price as price','boi_book_details.sell_book_delivary_location as location','users.email','boi_book_details.sell_book_phone_number as number','boi_book_details.sell_book_sell_status as status')
-            ->join('users', 'users.id', '=', 'boi_book_details.user_id')
-            ->join('user_upload_post_pic', 'boi_book_details.id', '=', 'user_upload_post_pic.post_id')
-            ->where('user_upload_post_pic.post_id', $postID)
-            ->distinct()
-            ->get();
+            $respond = DB::table('boi_book_details')
+                ->select('boi_book_details.sell_book_name as name', 'boi_book_details.id as id', 'boi_book_details.sell_book_author as author', 'boi_book_details.sell_book_condition as condition',
+                    'boi_book_details.sell_book_edition as edition', 'boi_book_details.sell_book_price as price', 'boi_book_details.sell_book_delivary_location as location', 'users.email', 'boi_book_details.sell_book_phone_number as number', 'boi_book_details.sell_book_sell_status as status')
+                ->join('users', 'users.id', '=', 'boi_book_details.user_id')
+                ->join('user_upload_post_pic', 'boi_book_details.id', '=', 'user_upload_post_pic.post_id')
+                ->where('user_upload_post_pic.post_id', $postID)
+                ->distinct()
+                ->get();
 
 
-        return view('user_sell_book_update',compact('respond'));
+            return view('user_sell_book_update', compact('respond'));
+        }
 
+        else{
+            return \redirect('login');
+        }
 
     }
 

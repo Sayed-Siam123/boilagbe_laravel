@@ -94,13 +94,13 @@
             <div class="row col-md-1"  style="width:100%;margin-bottom:24px">
 
 
-
+            @foreach($img as $col)
             <div class="container col-md-3" style="float:left;width:50%; height:40%;padding:5px">
 
-                <img src="images/test.jpeg" class="img-thumbnail" alt="bookView" style="max-width=100%;min-height:150px;height=336">
+                <img src="book\{{$col->pic_name}}" class="img-thumbnail" alt="bookView" style="max-width=100%;min-height:150px;height=336">
 
             </div>
-
+            @endforeach
             <div class="container col-md-3" style="float:left;width:50%; height:10%;min-height:80px;padding:1vmin">
                 <input type="hidden" value="{{$row->id}}" name="selectPostId_inSell">
                 <h6 class="text-justify" style="margin-bottom:.5vmin;font-size: 2.5vmin;">{{$row->sell_book_name}}</h6>

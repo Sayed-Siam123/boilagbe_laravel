@@ -6,6 +6,7 @@ use Illuminate\Foundation\PackageManifest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -94,6 +95,59 @@ class UserProfileEditController extends Controller
         else
         {
             echo "pai nai";
+        }
+
+    }
+
+    public function user_change_password(Request $request){
+
+        if($request->submit = 'Change Password'){
+
+
+
+            $oldpassword = $request->input('old_password');
+            $newpassword = $request->input('user_new_password');
+            $checkpassword = $request->input('user_confirm_password');
+
+            if(strlen($newpassword)>=6){
+                if($newpassword == $checkpassword){
+
+                    $sql = DB::table('users')
+                        ->select('password')
+                        ->where('users.id',Auth::id())->get();
+
+                    foreach ($sql as $row){
+
+                        $hashPassword = $row->password;
+                        if (Hash::check($oldpassword,$hashPassword)){
+
+                            $update_sql = DB::table('users')
+                                ->update(['password' => Hash::make($newpassword)]);
+
+                            Session::put('user_change_password_page','Password Changed Successfully!!');
+                            return Redirect::to('user_Profile_Edit');
+
+                        }
+                        else{
+                            Session::put('user_change_password_page','Your Old Password doesnt matched!!');
+                            return Redirect::to('change_password');
+                        }
+
+                    }
+
+                }
+
+                else{
+                    Session::put('user_change_password_page','Password doesnt matched!!');
+                    return Redirect::to('change_password');
+                }
+            }
+            else
+            {
+                Session::put('user_change_password_page','New Password should have min 6 characters!!');
+                return Redirect::to('change_password');
+            }
+
         }
 
     }
