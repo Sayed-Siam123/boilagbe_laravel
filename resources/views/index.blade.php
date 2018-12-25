@@ -69,8 +69,11 @@
             <div class="row col-md-1"  style="width:100%;margin-bottom:24px">
                 <div class="container col-md-3" style="float:left;width:50%; height:40%;padding:5px">
 
-                    <img src="images/test.jpeg" class="img-thumbnail" alt="bookView" style="max-width:100%;min-height:150px;height=336">
-
+                    @foreach($img as $row1)
+                        @if($row->id==$row1->post_id)
+                    <img src="book/{{$row1->pic_name}}" class="img-thumbnail" alt="bookView" style="max-width:100%;min-height:150px;height=336">
+                        @endif
+                    @endforeach
                     <form method="get" action="/wanttobuy">
                         <button name="login" value="Submit" type="submit" class="btn btn-primary btn-block" style="margin-left:;width:70%;min-width:120px;margin-top:5px">Want to Buy</button>
                         <input type="hidden" value="{{$row->id}}" name="selectPostId">

@@ -35,17 +35,12 @@ class indexController extends Controller
 
 
         $img=DB::table('user_upload_post_pic')
-            ->select('user_upload_post_pic.user_id','user_upload_post_pic.post_id','user_upload_post_pic.pic_name')
-            ->leftJoin('boi_book_details','boi_book_details.id','=','user_upload_post_pic.post_id')
-            ->leftJoin('users','users.id','=','boi_book_details.user_id')
-            ->where('boi_book_details.sell_book_sell_status','1')
-            ->groupBy('user_upload_post_pic.post_id')
-            ->get();
-
-        foreach ($img as $row){
-            echo $row->pic_name;
-        }
-
+          ->select('user_upload_post_pic.user_id','user_upload_post_pic.post_id','user_upload_post_pic.pic_name')
+          ->leftJoin('boi_book_details','boi_book_details.id','=','user_upload_post_pic.post_id')
+          ->leftJoin('users','users.id','=','boi_book_details.user_id')
+          ->where('boi_book_details.sell_book_sell_status','1')
+          ->groupBy('user_upload_post_pic.post_id')
+          ->get();
 
 
 
@@ -77,7 +72,7 @@ class indexController extends Controller
             ->get();
 
 
-        /*return view('index',compact('res1','res2','img'));*/
+        return view('index',compact('res1','res2','img'));
 
 
     }

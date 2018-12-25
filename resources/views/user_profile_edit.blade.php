@@ -75,10 +75,14 @@
                             <td style="font-size:2vmin">Phone Number:</td>
                             <td style="font-size:2vmin">{{$row->phone}}</td>
                           </tr>
-                          <tr>
-                            <td style="font-size:2vmin">Change Password:</td>
-                            <td style="font-size:2vmin"><a class="btn btn-primary btn-block" href="/change_password" style="background: #e74c3c;width:50%;min-width:120px;margin-top:5px">Change</a></td>
-                          </tr>
+                        @if(\Illuminate\Support\Facades\Auth::user()->provider)
+
+                        @else
+                        <tr>
+                          <td style="font-size:2vmin">Change Password:</td>
+                          <td style="font-size:2vmin"><a class="btn btn-primary btn-block" href="/change_password" style="background: #e74c3c;width:50%;min-width:120px;margin-top:5px">Change</a></td>
+                        </tr>
+                        @endif
                         @endforeach
                         </tbody>
                       </table>

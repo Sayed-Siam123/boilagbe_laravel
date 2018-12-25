@@ -30,6 +30,10 @@
 \Illuminate\Support\Facades\Route::get('/change_password','indexController@changepass');
 
 
+\Illuminate\Support\Facades\Route::get('auth/{provider}','auth\LoginController@redirectToProvider');
+\Illuminate\Support\Facades\Route::get('auth/{provider}/callback','auth\LoginController@handleProviderCallback');
+
+
 
 \Illuminate\Support\Facades\Route::post('/book_request','RequestBookController@book_request_post');
 \Illuminate\Support\Facades\Route::post('/updateBook','EditSellPostController@bookUpdate');

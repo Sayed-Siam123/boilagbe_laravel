@@ -110,6 +110,10 @@
                             {{ __('Login') }}
                         </button>
 
+                        <h5>OR</h5>
+                        
+                        <a href="{{url('auth/google')}}"><img src="images/google_signin.png" alt=""></a>
+
                         @if (Route::has('password.request'))
                             <a class="btn btn-link" href="{{ route('password.request') }}">
                                 {{ __('Forgot Your Password?') }}

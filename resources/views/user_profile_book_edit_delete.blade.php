@@ -95,11 +95,13 @@
 
 
             @foreach($img as $col)
+                @if($row->id==$col->post_id)
             <div class="container col-md-3" style="float:left;width:50%; height:40%;padding:5px">
 
                 <img src="book\{{$col->pic_name}}" class="img-thumbnail" alt="bookView" style="max-width=100%;min-height:150px;height=336">
 
             </div>
+                    @endif
             @endforeach
             <div class="container col-md-3" style="float:left;width:50%; height:10%;min-height:80px;padding:1vmin">
                 <input type="hidden" value="{{$row->id}}" name="selectPostId_inSell">

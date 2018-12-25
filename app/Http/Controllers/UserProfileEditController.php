@@ -68,29 +68,18 @@ class UserProfileEditController extends Controller
     public function editprofileDB(Request $request){
 
         if($request->submit = 'Update'){
-            $username = Session::get('username');
+            $username = Auth::user()->email;
             $location = $request->input("user_location");
             $phoneNumber = $request->input("user_phonenumber");
-            $password = $request->input("user_password");
-            $check_password = $request->input("check_password");
 
-            if($password == $check_password){
 
-                echo "password milse";
-                DB::table('boi_user_info')
-                    ->where('user_email_address',$username)
-                    ->update(['user_location' => $location,'user_phone_number' => $phoneNumber,'user_password' => $password]);
+                DB::table('users')
+                    ->where('email',$username)
+                    ->update(['location' => $location,'phone' => $phoneNumber]);
 
                 return Redirect::to('/user_Profile_Edit');
 
             }
-
-            else
-            {
-                echo "password not match";
-            }
-
-        }
 
         else
         {

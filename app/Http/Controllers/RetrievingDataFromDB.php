@@ -26,12 +26,14 @@ class RetrievingDataFromDB extends Controller
                 ->distinct()
                 ->get();
 
-            $img = DB::table('user_upload_post_pic')
-                ->select('pic_name')
-                ->join('users','users.id','=','user_upload_post_pic.user_id')
-                ->join('boi_book_details','boi_book_details.id','=','user_upload_post_pic.post_id')
+
+            $img=DB::table('user_upload_post_pic')
+                ->select('user_upload_post_pic.user_id','user_upload_post_pic.post_id','user_upload_post_pic.pic_name')
+                ->leftJoin('boi_book_details','boi_book_details.id','=','user_upload_post_pic.post_id')
+                ->leftJoin('users','users.id','=','boi_book_details.user_id')
+                ->where('boi_book_details.sell_book_sell_status','1')
                 ->where('user_upload_post_pic.user_id',Auth::id())
-                ->limit('1')
+                ->groupBy('user_upload_post_pic.post_id')
                 ->get();
 
 
